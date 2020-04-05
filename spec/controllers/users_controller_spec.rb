@@ -14,6 +14,10 @@ RSpec.describe UsersController, type: :controller do
 
     describe "#edit" do
       it "ユーザーeditページへのアクセス" 
+
+      it "ユーザー名の更新を確認"
+      it "ユーザーのメールアドレスの更新を確認"
+      IT "パスワードの変更を確認"
     end
 
 end
