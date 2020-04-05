@@ -17,7 +17,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "ユーザー名の更新を確認"
       it "ユーザーのメールアドレスの更新を確認"
-      IT "パスワードの変更を確認"
+      it "パスワードの変更を確認"
     end
 
 end

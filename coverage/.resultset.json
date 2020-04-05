@@ -94,6 +94,12 @@
           null
         ]
       },
+      "/Users/yuzuku/workspace/nekoten/app/models/post.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/yuzuku/workspace/nekoten/app/mailers/application_mailer.rb": {
         "lines": [
           0,
@@ -151,6 +157,6 @@
         }
       }
     },
-    "timestamp": 1586068287
+    "timestamp": 1586102185
   }
 }
