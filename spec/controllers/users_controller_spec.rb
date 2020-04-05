@@ -5,11 +5,15 @@ RSpec.describe UsersController, type: :controller do
     @user = create(:user)
   end
 
-    describe "GET #show" do
+    describe "#show" do
       it "ユーザー詳細ページへのアクセス" do
         get :show, params: {id: @user.id}
         expect(response).to be_success
       end
+    end
+
+    describe "#edit" do
+      it "ユーザーeditページへのアクセス" 
     end
 
 end
