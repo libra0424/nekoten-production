@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @post = Post.new
-    @post.photo.build
+    @post.photos.build
   end
 
   def create
     @post = Post.new(post_params)
-    if @post.photo.present?
+    if @post.photos.present?
       @post.save
       redirect_to root_path
       flash[:notice] = "投稿が保存されました"
@@ -14,6 +16,10 @@ class PostsController < ApplicationController
       redirect_to root_path
       flash[:alert] = "投稿に失敗しました"
     end
+  end
+
+  def index
+    @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
   end
 
   private
