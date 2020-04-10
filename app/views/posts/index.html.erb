@@ -11,9 +11,9 @@
             <strong><%= post.user.name %></strong>
           <% end %>
         </div>
-
+        <% if post.photos.present?%>
         <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
-
+        <% end %>
         <div class="card-body">
           <div class="row parts">
             <%= link_to "", "#", class: "love" %>

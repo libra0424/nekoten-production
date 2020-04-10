@@ -11,14 +11,5 @@ RSpec.describe UsersController, type: :controller do
         expect(response).to be_success
       end
     end
-
-    describe "#edit" do
-      it "ユーザーeditページへのアクセス" 
-
-      it "ユーザー名の更新を確認"
-      it "ユーザーのメールアドレスの更新を確認"
-      it "パスワードの変更を確認"
-    end
-
 end
 
