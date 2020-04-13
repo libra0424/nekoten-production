@@ -24,4 +24,13 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+  def self.guest
+    find_or_create_by(email: "test@com") do |user|
+      user.name = "test user"
+      user.username = "testuser"
+      user.password = Settings.test.password
+      user.confirmed_at = Time.now
+    end
+  end
 end

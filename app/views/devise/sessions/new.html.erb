@@ -25,7 +25,10 @@
                 アカウントをお持ちでないですか？
                 <%= link_to "登録する", new_user_registration_path %>
             </p>
-
+            <p class="devise-link">
+                テストユーザーでログインする→
+                <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post %>
+            </p>
         </div>
     </div>
 </div>

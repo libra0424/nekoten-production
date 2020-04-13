@@ -29,6 +29,8 @@
             <div class="actions">
                 <%= f.submit "登録する", class: "btn btn-primary w-100" %>
             </div>
+
+
             <% end %>
 
             <br>
@@ -36,6 +38,11 @@
             <p class="devise-link">
                 アカウントをお持ちですか？
                 <%= link_to "サインインする", new_user_session_path %>
+            </p>
+
+            <p class="devise-link">
+                テストユーザーで使用する→
+                <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post %>
             </p>
         </div>
     </div>
