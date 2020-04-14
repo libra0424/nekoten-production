@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Techpitgram</title>
+    <title>nekoten</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,9 +25,6 @@
             <%= flash[:alert] %>
         </div>
         <% end %>
-          <% if user_signed_in? %>
-            <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-          <% end %>
         <div class="container">
             <%= yield %>
         </div>
