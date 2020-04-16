@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id', to: 'users#show', as: 'user'
+
+  resources :cats, only: %i(new create index show destroy)
+
 end

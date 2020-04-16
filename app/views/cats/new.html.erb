@@ -1,0 +1,43 @@
+<div class="d-flex flex-column align-items-center mt-3">
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+    <div class="card">
+      <div class="card-header">
+        ウチの子を登録
+      </div>
+      <div class="card-body">
+        <%= form_with model: @cat, class: "upload-images p-0 border-0" do |f| %>
+          <div class="form-group row mt-2">
+            <div class="col pl-0">
+                <div class="form-group">
+                  <%= f.label :name, "猫の名前：" %>
+                  <%= f.text_field :name, class: "form-control border-0", placeholder: "猫の名前" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :cat_species, "猫種：" %>
+                  <%= f.text_field :cat_species, class: "form-control border-0", placeholder: "猫種" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :gender, "性別：" %>
+                      <%= f.radio_button :gender, 1 %>
+                      <%= f.label :gender, "男の子", {value: 1} %>
+                      <%= f.radio_button :gender, 2 %>
+                      <%= f.label :gender, "女の子", {value: 2} %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :birthday, "誕生日：" %>
+                  <%= f.date_select :birthday %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :coatcolor, "毛色：" %>
+                  <%= f.text_field :coatcolor, class: "form-control border-0", placeholder: "毛色" %>
+                </div>
+            </div>
+          </div>
+          <div class="mb-3">
+          </div>
+          <%= f.submit "ウチの子に追加する", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

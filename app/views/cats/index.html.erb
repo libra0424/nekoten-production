@@ -1,0 +1,23 @@
+<div class="card-header">
+  ウチの子達
+</div>
+<% @cats.each do |cat| %>
+  <div class="col-md-8 col-md-2 mx-auto">
+    <div class="card-wrap">
+      <div class="card">
+        <div class="card-header align-items-center d-flex">
+          <%= link_to cat_path(cat.id), class: "no-text-decoration" do %>
+            <%= cat.name %>
+          <% end %>
+
+          <% if cat.user_id == current_user.id %>
+            <%= link_to  cat_path(cat), method: :delete, class: "ml-auto mx-0 my-auto" do %>
+              <div class="delete-post-icon">
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
