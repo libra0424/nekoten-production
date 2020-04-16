@@ -18,10 +18,10 @@
                 </div>
                 <div class="form-group">
                   <%= f.label :gender, "性別：" %>
+                      <%= f.radio_button :gender, 0 %>
+                      <%= f.label :man, "男の子", {value: 0} %>
                       <%= f.radio_button :gender, 1 %>
-                      <%= f.label :gender, "男の子", {value: 1} %>
-                      <%= f.radio_button :gender, 2 %>
-                      <%= f.label :gender, "女の子", {value: 2} %>
+                      <%= f.label :woman, "女の子", {value: 1} %>
                 </div>
                 <div class="form-group">
                   <%= f.label :birthday, "誕生日：" %>

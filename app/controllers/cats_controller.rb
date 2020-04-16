@@ -22,6 +22,7 @@ class CatsController < ApplicationController
   end
   
   def show
+    @gender = cat_gender(@cat.gender)
   end
 
   def destroy
@@ -42,4 +43,11 @@ class CatsController < ApplicationController
       @cat = Cat.find_by(id: params[:id])
     end
 
+    def cat_gender(gender)
+      if gender == 0
+        return "男の子"
+      else
+        return "女の子"
+      end
+    end
 end
