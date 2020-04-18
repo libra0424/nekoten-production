@@ -25,6 +25,7 @@ class CatsController < ApplicationController
 
   def show
     @gender = cat_gender(@cat.gender)
+    @posts = @cat.posts
   end
 
   def destroy
