@@ -23,5 +23,5 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user'
 
-  resources :cats, only: %i[new create index show destroy]
+  resources :cats, only: %i[new create index show destroy edit update]
 end

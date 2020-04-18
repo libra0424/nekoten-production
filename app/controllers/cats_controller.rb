@@ -2,7 +2,7 @@
 
 class CatsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cat, only: %i[show destroy]
+  before_action :set_cat, only: %i[show destroy edit update]
 
   def new
     @cat = Cat.new
@@ -35,6 +35,20 @@ class CatsController < ApplicationController
       flash[:alert] = '削除に失敗しました'
     end
     redirect_to cats_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @cat.user == current_user
+      @cat.update(cat_params)
+      flash[:notice] = 'ウチの子の情報を変更しました'
+      redirect_to cat_url(@cat)
+    else
+      render 'edit'
+      flash[:alert] = '更新に失敗しました'
+    end
   end
 
   private
