@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -61,14 +63,14 @@ Rails.application.configure do
 
   # gmailでの送信の設定
   config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => 'smtp.gmail.com',
-    :user_name => Settings.gmail.email, #gmailアドレス
-    :password => Settings.gmail.password, #gmailパスワード
-    :authentication => 'login',
+    enable_starttls_auto: true,
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'smtp.gmail.com',
+    user_name: Settings.gmail.email, # gmailアドレス
+    password: Settings.gmail.password, # gmailパスワード
+    authentication: 'login'
   }
-  
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

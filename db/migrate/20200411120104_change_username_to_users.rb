@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeUsernameToUsers < ActiveRecord::Migration[5.2]
   def change
     add_index :users, :username, unique: true

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CatsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cat, only: %i(show destroy)
+  before_action :set_cat, only: %i[show destroy]
 
   def new
     @cat = Cat.new
@@ -10,44 +12,45 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     if @cat.save
       redirect_to cats_path
-      flash[:notice] = "ウチの子に追加されました"
+      flash[:notice] = 'ウチの子に追加されました'
     else
       redirect_to new_cat_path
-      flash[:alert] = "追加に失敗しました"
+      flash[:alert] = '追加に失敗しました'
     end
   end
 
   def index
-    @cats = Cat.all
+    @cats = Cat.where(user_id: current_user.id)
   end
-  
+
   def show
     @gender = cat_gender(@cat.gender)
   end
 
   def destroy
     if @cat.user == current_user
-      flash[:notice] = "ウチの子から削除されました" if @cat.destroy
+      flash[:notice] = 'ウチの子から削除されました' if @cat.destroy
     else
-      flash[:alert] = "削除に失敗しました"
+      flash[:alert] = '削除に失敗しました'
     end
     redirect_to cats_path
   end
 
   private
-    def cat_params
-      params.require(:cat).permit(:name,:gender,:birthday,:coatcolor,:cat_species).merge(user_id: current_user.id)
-    end
 
-    def set_cat
-      @cat = Cat.find_by(id: params[:id])
-    end
+  def cat_params
+    params.require(:cat).permit(:name, :gender, :birthday, :coatcolor, :cat_species).merge(user_id: current_user.id)
+  end
 
-    def cat_gender(gender)
-      if gender == 0
-        return "男の子"
-      else
-        return "女の子"
-      end
+  def set_cat
+    @cat = Cat.find_by(id: params[:id])
+  end
+
+  def cat_gender(gender)
+    if gender == 0
+      '男の子'
+    else
+      '女の子'
     end
+  end
 end

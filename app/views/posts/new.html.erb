@@ -15,11 +15,11 @@
             </div>
           </div>
           <div class="mb-3">
-
             <%= f.fields_for :photos do |i| %>
               <%= i.file_field :image %>
             <% end %>
-
+              <%= f.label :cats ,"猫"%><br>
+              <%= collection_check_boxes(:post, cat_ids, Cat.all, :id, :name) %>  
           </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
