@@ -19,7 +19,9 @@
               <%= i.file_field :image %>
             <% end %>
               <%= f.label :cats ,"猫"%><br>
-              <%= collection_check_boxes(:post, cat_ids, Cat.all, :id, :name) %>  
+              <%= f.collection_check_boxes(:cat_ids, @cats, :id, :name) do |t| %>
+                <% t.label { t.check_box + t.text } %>
+              <% end %>  
           </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>

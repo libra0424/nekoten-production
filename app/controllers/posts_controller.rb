@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.photos.build
-    @cats = Cat.where(user_id: current_user.id)
+    @cats = Cat.where(user: current_user)
   end
 
   def create

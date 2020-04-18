@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe RegistrationsController, type: :controller do
   before do
+    request.env["devise.mapping"] = Devise.mappings[:user]
     @user = create(:user)
   end
 
