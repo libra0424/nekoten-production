@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   resources :cats, only: %i[new create index show destroy edit update]
+
+  resources :relationships, only: %i[create destroy]
 end
