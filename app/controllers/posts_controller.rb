@@ -22,7 +22,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
+    @followings =  current_user.followings
+    @posts = Post.where(user_id:@followings.ids).limit(10).includes(:photos, :user).order('created_at DESC')
   end
 
   def show; end
