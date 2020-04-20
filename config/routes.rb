@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'users/sessions#new'
     get 'sign_out', to: 'users/sessions#destroy'
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    get 'confirm_email', to: 'users/registrations#confirm_email'
   end
 
   root 'posts#index'

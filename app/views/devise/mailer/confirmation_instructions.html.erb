@@ -1,5 +1,22 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
 <p><%= link_to 'アカウントを認証する', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>この度は、「ねこてん」にお申し込み頂きまして<br>
+誠にありがとうございます。<br>
+<br>
+お申し込み頂きましたアカウント情報は以下となります。<br>
+
+　ユーザーネーム：<%= @resource.username%> <br>
+　パスワード：個人情報のため表示を伏せています<br>
+<br>
+ご本人様確認のため、下記URLへ「24時間以内」にアクセスし<br>
+アカウントの本登録を完了させて下さい。<br>
+<br>
+<p><%= link_to 'アカウントを認証する', confirmation_url(@resource, confirmation_token: @token) %></p> <br>
+<br>
+※当メール送信後、24時間を超過しますと、セキュリティ保持のため有効期限切れとなります。<br>
+　その場合は再度、最初からお手続きをお願い致します。<br>
+<br>
+※当メールは送信専用メールアドレスから配信されています。<br>
+　このままご返信いただいてもお答えできませんのでご了承ください。<br>
+<br>
+※当メールに心当たりの無い場合は、誠に恐れ入りますが<br>
+　破棄して頂けますよう、よろしくお願い致します。</p>
