@@ -16,7 +16,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :username, uniqueness: true
 
   # パスワードなしでユーザーアカウント情報の変更を許可
   def update_without_current_password(params, *options)
@@ -35,7 +34,6 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by(email: 'test@com') do |user|
       user.name = 'test user'
-      user.username = 'testuser'
       user.password = Settings.test.password
       user.confirmed_at = Time.now
     end

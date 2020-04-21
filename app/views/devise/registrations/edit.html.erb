@@ -4,13 +4,8 @@
       <div class="profile-form-wrap">
         <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f| %>
           <div class="form-group">
-            <%= f.label :name, "名前" %>
+            <%= f.label :name, "ユーザーネーム" %>
             <%= f.text_field :name, autofocus: true, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :username, "ユーザーネーム" %>
-            <%= f.text_field :username, autofocus: true, class: "form-control" %>
           </div>
 
           <div class="form-group">
