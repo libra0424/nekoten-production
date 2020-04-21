@@ -4,6 +4,5 @@ class Cat < ApplicationRecord
   belongs_to :user
   has_many :catsposts, dependent: :destroy
   has_many :posts, through: :catsposts
-  has_many :photos, dependent: :destroy
   mount_uploader :profile_photo, ImageUploader
 end
