@@ -1,5 +1,6 @@
 <div class="card-header">
   <div class="card-header align-items-center d-flex">
+    <div>名前：</div>
     <%= link_to cat_path(@cat.id), class: "no-text-decoration" do %>
       <%= @cat.name %>
     <% end %>
@@ -10,6 +11,11 @@
     <% end %>
   </div>
 </div>
+    <% if @cat.profile_photo? %>
+      <%= image_tag @cat.profile_photo.thumb.url %>
+    <% else %>
+      <%=image_tag "default.jpg", :size => '100x100' %>
+    <%end%>
     <p>猫種：<%= @cat.cat_species %></p>
       
     <p>性別：<%= @gender %></p>

@@ -34,6 +34,9 @@
             </div>
           </div>
           <div class="mb-3">
+            <button type="button" class="btn btn-outline-secondary rounded-pill">
+              <%= f.file_field :profile_photo, accept: 'image/jpeg,image/gif,image/png' %>
+            </button>
           </div>
           <%= f.submit "ウチの子の情報を変更する", class: "btn btn-primary" %>
         <% end %>

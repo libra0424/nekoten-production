@@ -54,7 +54,7 @@ class CatsController < ApplicationController
   private
 
   def cat_params
-    params.require(:cat).permit(:name, :gender, :birthday, :coatcolor, :cat_species).merge(user_id: current_user.id)
+    params.require(:cat).permit(:name, :gender, :birthday, :coatcolor, :cat_species, :profile_photo).merge(user_id: current_user.id)
   end
 
   def set_cat
