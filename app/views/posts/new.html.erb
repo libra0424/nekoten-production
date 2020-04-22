@@ -5,7 +5,8 @@
         投稿画面
       </div>
       <div class="card-body">
-        <%= form_with model: @post, class: "upload-images p-0 border-0" do |f| %>
+        <%= form_with model: @post,local: true, class: "upload-images p-0 border-0" do |f| %>
+         <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group row mt-2">
             <div class="col-auto pr-0">
               <%= image_tag user_profile_photo(current_user), class: "post-profile-icon" %>

@@ -12,18 +12,19 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @cats = Cat.where(user: current_user)
     if @post.save
       flash[:notice] = '投稿が保存されました'
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
-      flash.now = '投稿に失敗しました'
+      flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
   end
 
   def index
     @followings =  current_user.followings
-    @posts = Post.where(user_id:@followings.ids).limit(10).includes(:photos, :user).order('created_at DESC')
+    @posts = Post.where(user_id:@followings.ids).limit(10).includes(:photos, :user).order(created_at: :DESC)
   end
 
   def show; end

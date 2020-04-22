@@ -5,7 +5,8 @@
         ウチの子を登録
       </div>
       <div class="card-body">
-        <%= form_with model: @cat, class: "upload-images p-0 border-0" do |f| %>
+        <%= form_with model: @cat, local: true, class: "upload-images p-0 border-0" do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group row mt-2">
             <div class="col pl-0">
                 <div class="form-group">

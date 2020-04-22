@@ -8,7 +8,7 @@
         <div class="card-header align-items-center d-flex">
           <%= link_to cat_path(cat.id), class: "no-text-decoration" do %>
             <% if cat.profile_photo? %>
-              <%= image_tag cat.profile_photo.thumb50.url %>
+              <%= image_tag cat.profile_photo.thumb50.url,class: "post-profile-icon"  %>
             <% else %>
               <%=image_tag "default.jpg", :size => '100x100' %>
             <%end%>
