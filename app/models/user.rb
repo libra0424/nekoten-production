@@ -14,8 +14,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, {
+                      presence: true,
+                      length: { maximum: 255 },
+                      format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: { case_sensitive: false }}
   validates :name, presence: true, length: { maximum: 50 }
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
 
   # パスワードなしでユーザーアカウント情報の変更を許可
   def update_without_current_password(params, *options)
