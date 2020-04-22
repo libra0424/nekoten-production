@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id', to: 'users#show', as: 'user'
+  get 'index', to: 'users#index'
 
   resources :cats, only: %i[new create index show destroy edit update]
   resources :users, only: %i[following followers] do

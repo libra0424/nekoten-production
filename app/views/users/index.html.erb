@@ -1,0 +1,18 @@
+<div class="card-header">
+  ユーザー一覧
+</div>
+
+  <div class="col-md-8 col-md-2 mx-auto">
+    <div class="card-wrap">
+      <% @users.each do |user| %>
+        <div class="card">
+          <div class="card-header align-items-center d-flex">
+            <%= link_to user_path(user), class: "no-text-decoration" do %>
+              <%= image_tag user_profile_photo(user), class: "post-profile-icon" %>
+              <strong><%= user.name %></strong>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
