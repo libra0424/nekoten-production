@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to :js
     else
+      render "posts/show"
       flash[:alert] = 'コメントに失敗しました'
     end
   end

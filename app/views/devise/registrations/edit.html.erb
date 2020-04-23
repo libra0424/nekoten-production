@@ -3,6 +3,7 @@
     <div class="col-md-8 mx-auto">
       <div class="profile-form-wrap">
         <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
             <%= f.label :name, "ユーザーネーム" %>
             <%= f.text_field :name, autofocus: true, class: "form-control" %>

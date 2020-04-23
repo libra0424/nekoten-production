@@ -11,11 +11,11 @@ class CatsController < ApplicationController
   def create
     @cat = Cat.new(cat_params)
     if @cat.save
-      redirect_to cats_path
       flash[:notice] = 'ウチの子に追加されました'
+      redirect_to cats_path
     else
-      redirect_to new_cat_path
-      flash[:alert] = '追加に失敗しました'
+      flash.now[:alert] = '追加に失敗しました'
+      render :new
     end
   end
 

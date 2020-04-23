@@ -12,7 +12,7 @@
         <div class="card-right-comment">
           <div class="card-right-name">
             <%= link_to user_path(@post.user), class: "no-text-decoration" do %>
-              <%= image_tag avatar_url(@post.user), class: "post-profile-icon" %>
+              <%= image_tag user_profile_photo(@post.user), class: "post-profile-icon" %>
             <% end %>
             <%= link_to user_path(@post.user), class: "black-color no-text-decoration post-user-name",
               title: @post.user.name do %>
@@ -27,9 +27,11 @@
             <% end %>
           </div>
           <div class="m-2">
+          <% if @commnets.present? %>
             <div id="comment-post-<%= @post.id.to_s %>">
                 <%= render 'comment_list', post: @post %>
             </div>
+          <% end %>
           </div>
           <div class="comment-post-id">
             <div class="m-2">

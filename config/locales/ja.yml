@@ -125,3 +125,12 @@ ja:
         caption: 'タイトル'
         photos: '写真'
         caption_or_photo: 'タイトルまたは写真'
+      cat:
+        name: '猫の名前'
+        cat_species:  '猫種'
+        gender: '性別'
+        coatcolor:  '毛色'
+        profile_photo:  'プロフィール画像'
+        birthday: '誕生日'
+
+        
