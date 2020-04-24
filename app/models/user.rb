@@ -21,20 +21,25 @@ class User < ApplicationRecord
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }}
   validates :name, presence: true, length: { maximum: 50 }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  with_options on: :create do
+    validates :passward, presence: true, length: { minimum: 6 }
+  end
+  with_options on: :update do
+    validates :password, length: { minimum: 6 }, allow_blank: true
+  end
+
 
   # パスワードなしでユーザーアカウント情報の変更を許可
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
-    if params[:password].blank? && params[:password_confirmation].blank?
-      params.delete(:password)
+    if params[:password].blank? && params[:password_confirmation].blank?  #パスワードが空なら
+      params.delete(:password)                #paramsからパスワードを削除
       params.delete(:password_confirmation)
     end
 
-    result = update_attributes(params, *options)
-    clean_up_passwords
+    result = update_attributes(params, *options) #paramsの情報をインスタンスにセット
+    clean_up_passwords  #パスワードと確認パスワードの関係をnilに
     result
   end
 
