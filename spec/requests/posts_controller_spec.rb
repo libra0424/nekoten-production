@@ -11,9 +11,5 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  describe '#create' do
-    it 'テストデータで投稿ができること'
-    it '投稿成功時にrootにリダイレクト'
-    it '投稿失敗時にrootにリダイレクト'
-  end
+
 end
