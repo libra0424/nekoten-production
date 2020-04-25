@@ -6,9 +6,9 @@ RSpec.describe PostsController, type: :controller do
   describe '#new' do
     it '投稿ページへのアクセス' do
       user = create(:user)
-      sign_in user
+      login_user user
       get :new
-      expect(response).to be_successful
+      expect(response).to be_success
     end
   end
 
