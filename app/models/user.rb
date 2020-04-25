@@ -22,7 +22,7 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }}
   validates :name, presence: true, length: { maximum: 50 }
   with_options on: :create do
-    validates :passward, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }
   end
   with_options on: :update do
     validates :password, length: { minimum: 6 }, allow_blank: true
