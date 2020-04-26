@@ -72,5 +72,7 @@ Rails.application.configure do
     authentication: 'login'
   }
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  host = 'samplehost'
+  Rails.application.routes.default_url_options[:host] = host
 end
