@@ -18,11 +18,27 @@ RSpec.describe Cat, type: :model do
       cat.name = "a" * 51
       expect(cat).not_to be_valid
     end
-
+    
     it '名前がない時バリデーションエラー' do
       cat.name = nil
       expect(cat).not_to be_valid
     end
+
+    it '猫種が文字数50文字を超える時バリデーションエラー' do
+      cat.cat_species = "a" * 51
+      expect(cat).not_to be_valid
+    end
+
+    it '毛色が文字数50文字を超える時バリデーションエラー' do
+      cat.coatcolor = "a" * 51
+      expect(cat).not_to be_valid
+    end
+    
+    it '誕生日が今日以降ならバリデーションエラー' do
+      cat.birthday = Date.today.next_day(1)
+      expect(cat).not_to be_valid
+    end
+
 
   end
 end
