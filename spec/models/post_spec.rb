@@ -8,9 +8,6 @@ RSpec.describe Post, type: :model do
     
     context 'ログインしている場合' do
       let(:user){create(:user)}
-      before do
-        sign_in user
-      end
       
       it 'ファクトリーデータの:postが投稿に成功する確認' do
         expect(post).to be_valid
@@ -26,12 +23,6 @@ RSpec.describe Post, type: :model do
         post.photo_ids = nil
         expect(post).not_to be_valid
       end     
-    end
-
-    context 'ログインしていない場合' do
-      it '投稿に失敗する' do
-        expect(post).to be_valid
-      end
     end
   end
 end
