@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+
   describe '#new' do
     it '投稿ページへのアクセス' do
       user = create(:user)
@@ -12,5 +13,6 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+ 
 
 end

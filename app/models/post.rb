@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :catsposts, allow_destroy: true
   accepts_nested_attributes_for :photos
   validates :caption,
-            length: { maximum: 2}
+            length: { maximum: 255}
   validates :caption_or_photo, presence: true
   
   def liked_by(user)

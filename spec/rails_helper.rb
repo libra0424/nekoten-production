@@ -68,6 +68,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   RSpec.configure do |config|
     config.include Devise::Test::IntegrationHelpers, type: :request # sign_inヘルパーを提供
+    config.include Devise::Test::IntegrationHelpers, type: :model # sign_inヘルパーを提供
     config.include FactoryBot::Syntax::Methods # FactoryBotをinclude
     config.include Devise::Test::ControllerHelpers, type: :controller
     config.include ControllerMacros, type: :controller
