@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
-  let(:post){create(:post)}
+  let(:create_post){create(:post)}
   let(:post_params){ attributes_for(:post)}
   let(:photo_params){ attributes_for(:photo)}
   describe '#new' do
@@ -14,7 +14,7 @@ RSpec.describe PostsController, type: :request do
       end
 
       it '投稿ページへのアクセスに成功する' do
-        get "/posts/new"
+        get posts_path
         expect(response).to be_successful
       end
 
@@ -25,8 +25,8 @@ RSpec.describe PostsController, type: :request do
 
       it 'createが成功すること' do
         expect do
-          post new_post_path, params: { post: post_params }
-        end.to change(User, :count).by 1
+          post posts_path, params: { post: post_params }
+        end.to change(Post, :count).by 1
       end
 
       

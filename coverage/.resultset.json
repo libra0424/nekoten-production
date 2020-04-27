@@ -162,10 +162,10 @@
           null,
           null,
           1,
-          1,
+          0,
           0,
           null,
-          1,
+          0,
           null,
           null,
           null
@@ -262,29 +262,29 @@
           1,
           null,
           1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
           1,
           1,
           1,
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
           null,
           null,
           1,
@@ -299,7 +299,7 @@
           1,
           null,
           1,
-          0,
+          2,
           null,
           null,
           1,
@@ -326,6 +326,17 @@
           null
         ]
       },
+      "/Users/yuzuku/workspace/nekoten/app/models/relationship.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/yuzuku/workspace/nekoten/app/models/post.rb": {
         "lines": [
           null,
@@ -349,7 +360,7 @@
           null,
           1,
           1,
-          0,
+          2,
           null,
           null
         ]
@@ -429,19 +440,6 @@
           null,
           0,
           0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/relationship.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          null,
           0,
           0,
           0
@@ -986,6 +984,6 @@
         }
       }
     },
-    "timestamp": 1587977243
+    "timestamp": 1587988809
   }
 }
