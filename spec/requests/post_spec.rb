@@ -4,6 +4,8 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
   let(:post){create(:post)}
+  let(:post_params){ attributes_for(:post)}
+  let(:photo_params){ attributes_for(:photo)}
   describe '#new' do
     context 'ログインしている場合' do
       let(:user){create(:user)}
@@ -15,6 +17,19 @@ RSpec.describe PostsController, type: :request do
         get "/posts/new"
         expect(response).to be_successful
       end
+
+      it '投稿リクエストが成功すること' do
+        post posts_path, params: { post: post_params }
+        expect(response.status).to eq 302 
+      end
+
+      it 'createが成功すること' do
+        expect do
+          post new_post_path, params: { post: post_params }
+        end.to change(User, :count).by 1
+      end
+
+      
     end
 
     context 'ログインしていない場合' do
@@ -22,6 +37,7 @@ RSpec.describe PostsController, type: :request do
         get "/posts/new"
         expect(response).to_not be_successful
       end
+
 
       it '投稿に失敗する' do
       end
