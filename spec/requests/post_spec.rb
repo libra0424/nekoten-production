@@ -99,7 +99,6 @@ RSpec.describe PostsController, type: :request do
     context 'ログインしている場合' do
       before do
         sign_in user
-
       end
 
       it 'showページへのアクセスに成功する' do
@@ -109,10 +108,35 @@ RSpec.describe PostsController, type: :request do
     end
 
     context 'ログインしていない場合' do
-      it 'indexページへのアクセスに失敗する' do
+      it 'showページへのアクセスに失敗する' do
         get post_path(create_post.id)
         expect(response).to_not be_successful
       end
+    end
+  end
+
+  describe '#destroy' do
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+        @post = create(:post,user_id:user.id)
+      end
+      it '削除リクエストが成功すること' do
+        delete post_path(@post)
+        expect(response.status).to eq 302
+      end
+
+      it 'deleteが成功すること' do
+        expect do
+          delete post_path(@post)
+        end.to change(Post, :count).by -1
+      end
+
+      it 'delete後リダイレクトされること' do
+        delete post_path(@post)
+        expect(response).to redirect_to root_path
+      end
+      
     end
   end
 end
