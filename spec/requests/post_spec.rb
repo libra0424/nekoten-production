@@ -145,8 +145,11 @@ RSpec.describe PostsController, type: :request do
 
     context 'ログインしていない場合' do
       it 'destroyが失敗すること' do
+        sign_in user
+        @post = create_post
+        sign_out user
         expect do
-          delete post_path(id:1)
+          delete post_path(@post.id)
         end.to change(Post, :count).by 0
       end
     end
