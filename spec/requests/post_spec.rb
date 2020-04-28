@@ -116,10 +116,11 @@ RSpec.describe PostsController, type: :request do
   end
 
   describe '#destroy' do
+    let(:current_user_post){create(:post,user_id:user.id)}
     context 'ログインしている場合' do
       before do
         sign_in user
-        @post = create(:post,user_id:user.id)
+        @post = current_user_post
       end
       it '削除リクエストが成功すること' do
         delete post_path(@post)
@@ -136,7 +137,18 @@ RSpec.describe PostsController, type: :request do
         delete post_path(@post)
         expect(response).to redirect_to root_path
       end
-      
+
+      context 'ログインユーザーの投稿でない場合' do
+
+      end
+    end
+
+    context 'ログインしていない場合' do
+      it 'destroyが失敗すること' do
+        expect do
+          delete post_path(id:1)
+        end.to change(Post, :count).by 0
+      end
     end
   end
 end
