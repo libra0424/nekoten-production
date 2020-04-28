@@ -13,8 +13,9 @@ example_id                                       | status  | run_time        |
 ./spec/models/cat_spec.rb[1:1:1:6]               | passed  | 2.02 seconds    |
 ./spec/models/cat_spec.rb[1:1:2:1]               | passed  | 0.00096 seconds |
 ./spec/models/catspost_spec.rb[1:1]              | pending | 0.00002 seconds |
-./spec/models/comment_spec.rb[1:1:1]             | passed  | 2.07 seconds    |
-./spec/models/comment_spec.rb[1:1:2:1]           | passed  | 2.36 seconds    |
+./spec/models/comment_spec.rb[1:1:1]             | passed  | 2.56 seconds    |
+./spec/models/comment_spec.rb[1:1:2:1]           | passed  | 3.79 seconds    |
+./spec/models/comment_spec.rb[1:1:2:2]           | passed  | 2.2 seconds     |
 ./spec/models/like_spec.rb[1:1]                  | pending | 0.00001 seconds |
 ./spec/models/photo_spec.rb[1:1]                 | pending | 0.00004 seconds |
 ./spec/models/post_spec.rb[1:1:1:1]              | passed  | 2.02 seconds    |

@@ -11,11 +11,15 @@ RSpec.describe Comment, type: :model do
     end
     
     describe 'パラメータが不正な場合' do
-      it 'コメントに失敗する' do
+      it 'コメントにが空白だと失敗する' do
         comment.comment = ""
         expect(comment).to_not be_valid
       end
+
+      it 'コメントが256文字以上だと失敗する' do
+        comment.comment = "a" * 256
+        expect(comment).to_not be_valid
+      end
     end
-    
   end
 end
