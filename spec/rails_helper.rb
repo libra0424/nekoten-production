@@ -72,5 +72,7 @@ RSpec.configure do |config|
     config.include FactoryBot::Syntax::Methods # FactoryBotをinclude
     config.include Devise::Test::ControllerHelpers, type: :controller
     config.include ControllerMacros, type: :controller
+    Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f } #support directoryをrequire
+    config.include RequestSpecHelper, type: :request #type: :requestのときにRequestHelperをinclude
   end
 end
