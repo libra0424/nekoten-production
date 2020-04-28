@@ -7,4 +7,11 @@ FactoryBot.define do
     password { 'testuser' }
     confirmed_at {Time.now}
   end
+
+  factory :user2, class: User do
+    name { 'test2' }
+    sequence(:email) { |n| "TEST#{n}@example2.com" }
+    password { 'testuser' }
+    confirmed_at {Time.now}
+  end
 end

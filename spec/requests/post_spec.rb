@@ -4,7 +4,9 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
   let(:user){create(:user)}
+  let(:other_user){create(:user2)}
   let(:create_post){create(:post)}
+  let(:create_other_user_post){create(:post, user:other_user)}
   let(:post_params){ attributes_for(:post)}
   let(:invalid_post_params){ attributes_for(:post, caption:"", photos: nil)} #タイトルも写真も空白
 
@@ -44,7 +46,7 @@ RSpec.describe PostsController, type: :request do
       it 'createが成功すること' do
         expect do
           post posts_path, params: { post: post_params }
-        end.to change(Post, :count).by 1
+          end.to change(Post, :count).by 1
       end
 
       it 'create後リダイレクトされること' do
@@ -138,8 +140,11 @@ RSpec.describe PostsController, type: :request do
         expect(response).to redirect_to root_path
       end
 
-      context 'ログインユーザーの投稿でない場合' do
-
+      it 'ログインしいてるユーザーの投稿でない場合' do
+        post = create_other_user_post
+        expect do
+          delete post_path(post.id)
+        end.to change(Post, :count).by 0
       end
     end
 
