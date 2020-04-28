@@ -140,11 +140,16 @@ RSpec.describe PostsController, type: :request do
         expect(response).to redirect_to root_path
       end
 
-      it 'ログインしいてるユーザーの投稿でない場合' do
-        post = create_other_user_post
-        expect do
-          delete post_path(post.id)
-        end.to change(Post, :count).by 0
+      context 'ログインしいてるユーザーの投稿でない場合' do
+        before do
+          @post = create_other_user_post
+        end
+          
+        it 'deleteできないこと' do
+          expect do
+            delete post_path(@post.id)
+          end.to change(Post, :count).by 0
+        end
       end
     end
 
