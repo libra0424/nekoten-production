@@ -6,10 +6,9 @@ RSpec.describe CommentsController, type: :request do
   let(:user){create(:user)}
   let(:other_user){create(:user2)}
   let(:create_post){create(:post)}
-  let(:create_comment){create(:comment)}
   let(:create_other_user_comment){create(:comment, user:other_user)}
-  let(:comment_params){ attributes_for(:comment)}
-  let(:invalid_comment_params){ attributes_for(:comment, comment:"")}
+  let(:comment_params){ attributes_for(:comment,user_id:user.id,post_id:create_post.id)}
+  let(:invalid_comment_params){ attributes_for(:comment_params, comment:"")}
 
   describe 'comment#create' do
     context 'ログインしている場合' do
@@ -19,14 +18,13 @@ RSpec.describe CommentsController, type: :request do
       end
 
       it 'comment#createへのアクセスが成功すること' do
-        binding.pry
-        post post_comments_path(@post.id), params: { comment: comment_params }
-        expect(response.status).to eq 302
+        post post_comments_path(@post.id, format: :js), params: { comment: comment_params }
+        expect(response.status).to eq 200
       end
 
       it 'createが成功すること' do
         expect do
-          post post_comments_path, params: { comment: comment_params }
+          post post_comments_path(@post.id, format: :js), params: { comment: comment_params }
           end.to change(Comment, :count).by 1
       end
 
@@ -37,7 +35,7 @@ RSpec.describe CommentsController, type: :request do
       context 'パラメータが不正な場合(ログインしていて)' do
         it 'createが失敗すること' do
           expect do
-            post post_comments_path, params: { comment: invalid_comment_params }
+            post post_comments_path(@post.id, format: :js), params: { comment: invalid_comment_params }
           end.to change(Comment, :count).by 0
         end
       end
@@ -46,7 +44,7 @@ RSpec.describe CommentsController, type: :request do
     context 'ログインしていない場合' do
       it 'createが失敗すること' do
         expect do
-          post post_comments_path, params: { comment: comment_params }
+          post post_comments_path(@post.id, format: :js), params: { comment: comment_params }
         end.to change(Comment, :count).by 0
       end
     end

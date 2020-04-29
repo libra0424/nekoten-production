@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @comment = Comment.new(comment_params)
-    @post = @comment.post
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(comment_params.merge(user: current_user))
     if @comment.save
       respond_to :js
     else
