@@ -36,3 +36,6 @@ config/environments/*.local.yml
 
 # Ignore uploaded files in development
 /public/uploads/
+
+#systemテストのスクリーンショッファイル
+/tmp/screenshots

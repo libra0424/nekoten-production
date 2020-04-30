@@ -1,0 +1,19 @@
+current directory: /Users/yuzuku/workspace/nekoten/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.1/ext/byebug
+/Users/yuzuku/.rbenv/versions/2.6.0/bin/ruby -I /Users/yuzuku/.rbenv/versions/2.6.0/lib/ruby/2.6.0 -r ./siteconf20200430-24867-jrx4h4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yuzuku/workspace/nekoten/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/yuzuku/workspace/nekoten/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/yuzuku/workspace/nekoten/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20200430-24867-f2m0fv/byebug

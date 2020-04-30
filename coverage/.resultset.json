@@ -99,7 +99,7 @@
           null,
           null,
           1,
-          48,
+          0,
           null,
           null,
           null,
@@ -134,7 +134,7 @@
           null,
           null,
           1,
-          96,
+          0,
           null,
           null,
           null,
@@ -144,7 +144,7 @@
           null,
           null,
           1,
-          48,
+          0,
           null,
           null,
           null
@@ -162,10 +162,10 @@
           null,
           null,
           1,
-          4,
+          0,
           0,
           null,
-          4,
+          0,
           null,
           null,
           null
@@ -191,7 +191,7 @@
         "lines": [
           1,
           1,
-          0,
+          1,
           null,
           0,
           0,
@@ -253,57 +253,20 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/posts_controller.rb": {
+      "/Users/yuzuku/workspace/nekoten/app/controllers/registrations_controller.rb": {
         "lines": [
           null,
           null,
           1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          5,
-          5,
-          5,
-          3,
-          3,
-          null,
-          2,
-          2,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          4,
-          3,
-          null,
-          1,
-          null,
-          4,
-          null,
           null,
           1,
           null,
           1,
-          5,
+          0,
           null,
           null,
           1,
-          5,
+          0,
           null,
           null
         ]
@@ -320,112 +283,9 @@
           1,
           null,
           1,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/post.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          6,
-          1,
-          1,
-          1,
-          1,
           1,
           1,
           null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          15,
-          null,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/photo.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/cat.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/relationship.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/like.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/comment.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/catspost.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
           null
         ]
       },
@@ -433,6 +293,123 @@
         "lines": [
           null,
           null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/photo.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/catspost.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/like.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/cat.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/comment.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/relationship.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/nekoten/app/models/post.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
           0,
           0,
           0,
@@ -895,6 +872,63 @@
         "branches": {
         }
       },
+      "/Users/yuzuku/workspace/nekoten/app/controllers/posts_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/yuzuku/workspace/nekoten/app/controllers/relationships_controller.rb": {
         "lines": [
           0,
@@ -933,26 +967,6 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/registrations_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/yuzuku/workspace/nekoten/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
@@ -978,6 +992,6 @@
         }
       }
     },
-    "timestamp": 1588174967
+    "timestamp": 1588221027
   }
 }
