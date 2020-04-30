@@ -76,4 +76,8 @@ example_id                                       | status  | run_time        |
 ./spec/requests/post_spec.rb[1:5:1:3]            | passed  | 2.15 seconds    |
 ./spec/requests/post_spec.rb[1:5:1:4:1]          | passed  | 4.34 seconds    |
 ./spec/requests/post_spec.rb[1:5:2:1]            | passed  | 2.18 seconds    |
-./spec/systems/users_spec.rb[1:2]                | passed  | 2.49 seconds    |
+./spec/systems/users_spec.rb[1:1:1:1]            | passed  | 3.73 seconds    |
+./spec/systems/users_spec.rb[1:1:1:2]            | failed  | 0.45958 seconds |
+./spec/systems/users_spec.rb[1:1:2:1]            | passed  | 0.6372 seconds  |
+./spec/systems/users_spec.rb[1:1:2:2]            | passed  | 0.60002 seconds |
+./spec/systems/users_spec.rb[1:1:2:3]            | failed  | 0.33404 seconds |
