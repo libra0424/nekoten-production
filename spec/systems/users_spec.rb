@@ -9,6 +9,7 @@ RSpec.describe 'Users', type: :system do
     before do
       ActionMailer::Base.deliveries.clear
     end
+
     context 'パラメータが妥当な場合' do
       it '認証メールが送信される' do
         visit new_user_registration_path       
@@ -19,18 +20,6 @@ RSpec.describe 'Users', type: :system do
         click_button '登録する'
         expect(ActionMailer::Base.deliveries.size).to eq 1
       end
-      
-      it 'createが成功すること' do
-        expect do
-          visit new_user_registration_path   
-          post user_registration_path, params: { user: user_params}
-        end.to change(User, :count).by 1
-      end
-      
-      # it 'リダイレクトされること' do
-      #   post user_registration_path, params: { user: user_params }
-      #   expect(response).to redirect_to root_url
-      # end
     end
 
     context 'パラメーターが不正な場合' do
@@ -54,13 +43,6 @@ RSpec.describe 'Users', type: :system do
         click_button '登録する'
         expect(page).to have_content '名前が入力されていません'
       end
-
-      it 'createが失敗すること' do
-        expect do
-          post user_registration_path, params: { user: invalid_user_params}
-        end.to_not change(User, :count)
-      end
-
     end
   end
 end
