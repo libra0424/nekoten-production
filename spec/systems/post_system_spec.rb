@@ -4,12 +4,13 @@ RSpec.describe PostsController, type: :system do
   let(:user){create(:user)}
   let(:other_user){create(:user2)}
   let(:build_post){build(:post)}
+  let(:create_post){create(:post)}
   let(:create_other_user_post){create(:post, user:other_user)}
   let(:post_params){ attributes_for(:post)}
   let(:invalid_post_params){ attributes_for(:post, caption:"", photos: nil)} #タイトルも写真も空白
 
 
-  describe '#new' do
+  describe '#create' do
     context 'ログインしている場合' do
       before do
         sign_in user
@@ -29,6 +30,20 @@ RSpec.describe PostsController, type: :system do
             click_button '投稿する'
           }.to change(Post, :count).by(1)
         end
+      end
+    end
+  end
+
+  describe '#destroy' do
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+        @post = create_post
+      end
+      
+      it '投稿詳細ページへのアクセスに成功する' do
+        visit post_path(@post)
+        expect(page).to have_selector '#comment_comment'
       end
     end
   end
