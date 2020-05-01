@@ -38,12 +38,19 @@ RSpec.describe PostsController, type: :system do
     context 'ログインしている場合' do
       before do
         sign_in user
-        @post = create_post
+        @post = create(:post,user_id:user.id)
       end
       
       it '投稿詳細ページへのアクセスに成功する' do
         visit post_path(@post)
         expect(page).to have_selector '#comment_comment'
+      end
+
+      it '自分の投稿を削除できること' do
+        visit post_path(@post)
+        expect{
+          find('.delete-post-icon').click
+        }.to change(Post, :count).by(-1)
       end
     end
   end
