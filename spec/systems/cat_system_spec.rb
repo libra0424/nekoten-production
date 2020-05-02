@@ -25,7 +25,7 @@ RSpec.describe CatsController, type: :system do
             fill_in 'cat[name]', with: build_cat.name
             fill_in 'cat[cat_species]', with: build_cat.cat_species
             choose 'cat_gender_0'
-            select_date("2019,1,1" , from: "誕生日")
+            select_date("2020,1月,1" , from: "誕生日")
             fill_in 'cat[coatcolor]', with: build_cat.coatcolor
             click_button 'ウチの子に追加する'
           }.to change(Cat, :count).by(1)
