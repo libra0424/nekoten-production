@@ -27,11 +27,9 @@
             <% end %>
           </div>
           <div class="m-2">
-          <% if @post.comments.present? %>
             <div id="comment-post-<%= @post.id.to_s %>">
                 <%= render 'comment_list', post: @post %>
             </div>
-          <% end %>
           </div>
           <div class="comment-post-id">
             <div class="m-2">
