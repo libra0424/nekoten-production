@@ -55,6 +55,8 @@ RSpec.describe CatsController, type: :system do
       it 'editページへのアクセスに成功する' do
         visit edit_cat_path(@cat)
         expect(page).to have_content 'ウチの子の情報を変更'
+        expect(page).to have_field '猫の名前', with: @cat.name
+
       end
 
       it '猫の名前を変更できる' do
