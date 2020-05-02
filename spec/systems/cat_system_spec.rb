@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.describe CatsController, type: :system do
   let(:user){create(:user)}
   let(:build_cat){build(:cat)}
-  let(:create_cat){create(:cat)}
-  let(:cat_params){ attributes_for(:cat)}
-
 
   describe '#create' do
     context 'ログインしている場合' do
@@ -19,7 +16,7 @@ RSpec.describe CatsController, type: :system do
       end
 
       context 'パラメータが妥当な場合' do
-        it '投稿できる' do
+        it '猫を登録できる' do
           expect {
             visit new_cat_path       
             fill_in 'cat[name]', with: build_cat.name
@@ -34,23 +31,59 @@ RSpec.describe CatsController, type: :system do
     end
   end
 
+  describe '#show' do
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+        @cat = create(:cat,user_id:user.id)
+      end
+      
+      it 'editページへのアクセスに成功する' do
+        visit cat_path(@cat)
+        expect(page).to have_content @cat.name
+      end
+    end
+  end
+
+  describe '#edit' do
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+        @cat = create(:cat,user_id:user.id)
+      end
+      
+      it 'editページへのアクセスに成功する' do
+        visit edit_cat_path(@cat)
+        expect(page).to have_content 'ウチの子の情報を変更'
+      end
+
+      it '猫の名前を変更できる' do
+        visit edit_cat_path(@cat)
+        fill_in 'cat[name]', with: "#{build_cat.name}2"
+        click_button 'ウチの子の情報を変更する'
+        expect(page).to have_content "#{build_cat.name}2"
+      end
+    end
+  end
+
+
   describe '#destroy' do
     context 'ログインしている場合' do
       before do
         sign_in user
-        @post = create(:post,user_id:user.id)
+        @cat = create(:cat,user_id:user.id)
       end
       
       it '投稿詳細ページへのアクセスに成功する' do
-        visit post_path(@post)
-        expect(page).to have_selector '#comment_comment'
+        visit cat_path(@cat)
+        expect(page).to have_content @cat.name
       end
 
       it '自分の投稿を削除できること' do
-        visit post_path(@post)
+        visit cat_path(@cat)
         expect{
           find('.delete-post-icon').click
-        }.to change(Post, :count).by(-1)
+        }.to change(Cat, :count).by(-1)
       end
     end
   end

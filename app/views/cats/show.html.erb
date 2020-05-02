@@ -5,8 +5,9 @@
       <%= @cat.name %>
     <% end %>
     <% if @cat.user_id == current_user.id %>
+    <%= link_to  ":edit", edit_cat_path(@cat), class:"badge badge-pill badge-primary" %>
       <%= link_to  cat_path(@cat), method: :delete, class: "ml-auto mx-0 my-auto" do %>
-        <div class="delete-post-icon">
+        <div class="delete-post-icon"></div>
       <% end %>
     <% end %>
   </div>
