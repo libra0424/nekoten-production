@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user: current_user))
+    
     if @comment.save
       respond_to :js
     else
@@ -17,10 +18,12 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post
-    if @comment.destroy
-      respond_to :js
-    else
-      flash[:alert] = 'コメントの削除に失敗しました'
+    if @comment.user == current_user
+      if @comment.destroy
+        respond_to :js
+      else
+        flash[:alert] = 'コメントの削除に失敗しました'
+      end
     end
   end
 
