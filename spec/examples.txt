@@ -10,10 +10,10 @@ example_id                                            | status  | run_time      
 ./spec/requests/comment_request_spec.rb[1:1:2:1]      | passed  | 2.51 seconds    |
 ./spec/requests/comment_request_spec.rb[1:2:1:1]      | passed  | 2.15 seconds    |
 ./spec/requests/comment_request_spec.rb[1:2:1:2:1]    | passed  | 4.36 seconds    |
-./spec/requests/like_request_spec.rb[1:1:1:1]         | passed  | 2.34 seconds    |
-./spec/requests/like_request_spec.rb[1:1:2:1]         | passed  | 2.22 seconds    |
-./spec/requests/like_request_spec.rb[1:2:1:1]         | passed  | 2.28 seconds    |
-./spec/requests/like_request_spec.rb[1:2:2:1]         | unknown |                 |
+./spec/requests/like_request_spec.rb[1:1:1:1]         | passed  | 2.68 seconds    |
+./spec/requests/like_request_spec.rb[1:1:2:1]         | passed  | 2.49 seconds    |
+./spec/requests/like_request_spec.rb[1:2:1:1]         | passed  | 2.15 seconds    |
+./spec/requests/like_request_spec.rb[1:2:2:1]         | passed  | 2.28 seconds    |
 ./spec/requests/post_request_spec.rb[1:1:1:1]         | passed  | 1.04 seconds    |
 ./spec/requests/post_request_spec.rb[1:1:2:1]         | passed  | 0.38184 seconds |
 ./spec/requests/post_request_spec.rb[1:2:1:1]         | passed  | 2.32 seconds    |

@@ -55,14 +55,13 @@ RSpec.describe LikesController, type: :request do
     context 'ログインしていない場合' do
       before do
         @post = create_post
+        @like = create(:like,user:other_user,post:@post)
       end
 
-      it 'createが失敗すること' do
+      it 'destoryが失敗すること' do
         expect do
-          expect do
-            post post_likes_path(@post, format: :js), params: { post_id: @post.id }
+          delete post_like_path(@post.id, id:@like.id, format: :js)
           end.to change(Like, :count).by 0
-        end
       end
     end
   end
