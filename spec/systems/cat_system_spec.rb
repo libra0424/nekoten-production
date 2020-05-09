@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe CatsController, type: :system do
+RSpec.describe "ネコの機能", type: :system do
   let(:user){create(:user)}
   let(:build_cat){build(:cat)}
 
-  describe '#create' do
+  describe '猫の登録について' do
     context 'ログインしている場合' do
       before do
         sign_in user
