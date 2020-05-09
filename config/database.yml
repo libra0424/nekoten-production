@@ -52,5 +52,5 @@ production:
   <<: *default
   database: nekoten_production
   username: nekoten
-  password: <%= ENV['NEKOTEN_DATABASE_PASSWORD'] %>
+  password:
 
