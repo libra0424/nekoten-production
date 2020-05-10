@@ -50,7 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: nekoten_production
-  username: nekoten
-  password:
-
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
