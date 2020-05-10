@@ -38,4 +38,6 @@ config/environments/*.local.yml
 /public/uploads/
 
 #systemテストのスクリーンショッファイル
-/tmp/screenshots
+/tmp/screenshot
+
+.env
