@@ -59,7 +59,7 @@ RSpec.describe CommentsController, type: :request do
 
       context 'ログインしいてるユーザーの投稿でない場合' do
         before do
-          @other_comment = create(:comment, user_id:2) 
+          @other_comment = create(:comment, user:other_user) 
         end
           
         it 'deleteできないこと' do
