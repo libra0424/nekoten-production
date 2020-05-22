@@ -16,12 +16,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
   username: root
-  password:
+  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
 
 
 development:
   <<: *default
   database: nekoten_development
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
