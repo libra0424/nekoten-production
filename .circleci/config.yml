@@ -48,8 +48,8 @@ jobs:
 
       #MySQLの起動を待つ
       - run:
-        name: Wait for DB
-        command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       # Database setup
       - run: bundle exec rake db:create
@@ -60,11 +60,11 @@ jobs:
           name: run tests
           command: |
             DISABLE_SPRING=true bundle exec rails test
-            
+
         # run rubocop
       - run:
-        name: run rubocop
-        command: bundle exec rubocop
+          name: run rubocop
+          command: bundle exec rubocop
 
 
       # collect reports
