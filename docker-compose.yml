@@ -11,6 +11,8 @@ services:
       - public-data:/nekoten/public
       - tmp-data:/nekoten/tmp
       - log-data:/nekoten/log
+    environment:
+      - DB_HOST=db
     depends_on:
       - db
   db:
@@ -19,6 +21,8 @@ services:
       - ./environments/db.env
     volumes:
       - db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
   web:
     build:
       context: containers/nginx
