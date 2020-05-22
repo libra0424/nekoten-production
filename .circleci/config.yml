@@ -39,11 +39,12 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       # runのたびに実行
+      # パスの指定はキャッシュをするため
       - run:
           name: install dependencies
           command: |
             gem install bundler -v 1.17.3
-            bundle install --jobs=4 --retry=3
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
