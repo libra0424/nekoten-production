@@ -60,6 +60,11 @@ jobs:
           name: run tests
           command: |
             DISABLE_SPRING=true bundle exec rails test
+            
+        # run rubocop
+      - run:
+        name: run rubocop
+        command: bundle exec rubocop
 
 
       # collect reports
