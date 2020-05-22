@@ -57,6 +57,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :development, :staging do
+  gem 'rubocop', '~> 0.55.0', require: false
+end
+
 group :production, :staging do
     gem 'unicorn'
 end
