@@ -40,4 +40,6 @@ config/environments/*.local.yml
 #systemテストのスクリーンショッファイル
 /tmp/screenshot
 
+/vendor/bundle
+
 .env
