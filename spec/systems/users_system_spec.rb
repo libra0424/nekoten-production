@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   let(:user) { build(:user) }
   let(:user_params) { attributes_for(:user) }
-  let(:invalid_user_params) { attributes_for(:user, name: "") }
+  let(:invalid_user_params) { attributes_for(:user, name: '') }
 
   describe 'user#create' do
     before do
@@ -12,7 +14,7 @@ RSpec.describe 'Users', type: :system do
 
     context 'パラメータが妥当な場合' do
       it '認証メールが送信される' do
-        visit new_user_registration_path       
+        visit new_user_registration_path
         fill_in 'user[email]', with: user.email
         fill_in 'user[name]', with: user.name
         fill_in 'user[password]', with: user.password
@@ -25,7 +27,7 @@ RSpec.describe 'Users', type: :system do
     context 'パラメーターが不正な場合' do
       it 'メールが重複した場合エラーメッセージが表示される' do
         user.save
-        visit new_user_registration_path       
+        visit new_user_registration_path
         fill_in 'user[email]', with: user.email
         fill_in 'user[name]', with: user.name
         fill_in 'user[password]', with: user.password
@@ -35,7 +37,7 @@ RSpec.describe 'Users', type: :system do
       end
 
       it '名前が空白の場合エラーメッセージが表示される' do
-        visit new_user_registration_path       
+        visit new_user_registration_path
         fill_in 'user[email]', with: user.email
         fill_in 'user[name]', with: ''
         fill_in 'user[password]', with: user.password

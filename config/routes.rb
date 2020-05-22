@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-
   get '/pages/home', to: 'pages#home'
   resources :posts, only: %i[new create index show destroy] do
     resources :photos, only: %i[create]

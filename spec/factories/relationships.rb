@@ -3,13 +3,15 @@
 FactoryBot.define do
   factory :relationship do
     association :user
-    user_id {[
-      FactoryBot.build(:user)
-    ]}
-    follow_id {[
-      FactoryBot.build(:user2)
-    ]}
+    user_id do
+      [
+        FactoryBot.build(:user)
+      ]
+    end
+    follow_id do
+      [
+        FactoryBot.build(:user2)
+      ]
+    end
   end
 end
-
-

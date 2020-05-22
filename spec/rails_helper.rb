@@ -13,7 +13,7 @@ end
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'devise'
-require File.expand_path("spec/support/controller_macros.rb")
+require File.expand_path('spec/support/controller_macros.rb')
 require 'support/capybara'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -73,7 +73,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods # FactoryBotをinclude
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerMacros, type: :controller
-  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f } #support directoryをrequire
-  config.include RequestSpecHelper, type: :request #type: :requestのときにRequestHelperをinclude
+  Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f } # support directoryをrequire
+  config.include RequestSpecHelper, type: :request # type: :requestのときにRequestHelperをinclude
   config.include SelectDateHelpers
 end

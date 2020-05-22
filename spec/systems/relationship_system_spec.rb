@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe RelationshipsController, type: :system do
-  let(:user){create(:user)}
+  let(:user) { create(:user) }
 
   describe '#create' do
     context 'ログインしている場合' do
@@ -11,10 +13,10 @@ RSpec.describe RelationshipsController, type: :system do
       end
 
       context '自分意外のユーザー' do
-        it 'フォローできる' ,js:true do
-            visit user_path(@other_user)
-            click_button 'Follow'
-            expect(page).to have_content 'ユーザーをフォローしました'
+        it 'フォローできる', js: true do
+          visit user_path(@other_user)
+          click_button 'Follow'
+          expect(page).to have_content 'ユーザーをフォローしました'
         end
       end
     end
@@ -26,8 +28,8 @@ RSpec.describe RelationshipsController, type: :system do
         @other_user = create(:user2)
         sign_in user
       end
-      
-      it 'フォロー解除できる' ,js:true do
+
+      it 'フォロー解除できる', js: true do
         visit user_path(@other_user)
         click_button 'Follow'
         sleep 0.5

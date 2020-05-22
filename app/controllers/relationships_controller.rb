@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class RelationshipsController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
 
   def create
     following = current_user.follow(@user)
-    if following.save 
+    if following.save
       flash[:notice] = 'ユーザーをフォローしました'
       redirect_to @user
     else
@@ -29,5 +31,4 @@ class RelationshipsController < ApplicationController
   def set_user
     @user = User.find(params[:follow_id])
   end
-
 end

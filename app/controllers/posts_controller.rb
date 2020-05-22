@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i[show destroy] 
+  before_action :set_post, only: %i[show destroy]
 
   def new
     @post = Post.new
@@ -23,12 +23,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    @followings =  current_user.followings
-    @posts = Post.where(user_id:@followings.ids).limit(10).includes(:photos, :user).order(created_at: :DESC)
+    @followings = current_user.followings
+    @posts = Post.where(user_id: @followings.ids).limit(10).includes(:photos, :user).order(created_at: :DESC)
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     if @post.user == current_user
@@ -42,7 +41,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:caption, {:cat_ids => []},photos_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:post).permit(:caption, { cat_ids: [] }, photos_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_post

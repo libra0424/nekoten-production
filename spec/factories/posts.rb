@@ -3,10 +3,12 @@
 FactoryBot.define do
   factory :post do
     association :user
-    caption {"test"}
-    photos {[
-      FactoryBot.build(:photo,post: nil)
-    ]}
+    caption { 'test' }
+    photos do
+      [
+        FactoryBot.build(:photo, post: nil)
+      ]
+    end
   end
 end
 

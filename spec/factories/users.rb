@@ -5,13 +5,13 @@ FactoryBot.define do
     name { 'test' }
     sequence(:email) { |n| "TEST#{n}@example.com" }
     password { 'testuser' }
-    confirmed_at {Time.now}
+    confirmed_at { Time.zone.now }
   end
 
   factory :user2, class: User do
     name { 'test2' }
     sequence(:email) { |n| "TEST#{n}@example2.com" }
     password { 'testuser' }
-    confirmed_at {Time.now}
+    confirmed_at { Time.zone.now }
   end
 end

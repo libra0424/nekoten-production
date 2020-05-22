@@ -4,13 +4,15 @@ FactoryBot.define do
   factory :like do
     association :post
     association :user
-    user_id {[
-      FactoryBot.build(:user)
-    ]}
-    post_id {[
-      FactoryBot.build(:post)
-    ]}
+    user_id do
+      [
+        FactoryBot.build(:user)
+      ]
+    end
+    post_id do
+      [
+        FactoryBot.build(:post)
+      ]
+    end
   end
 end
-
-

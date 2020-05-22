@@ -31,7 +31,6 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-    
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
@@ -97,6 +96,5 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
-  config.example_status_persistence_file_path = "spec/examples.txt"
-
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 end

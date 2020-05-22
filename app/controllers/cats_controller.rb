@@ -37,8 +37,7 @@ class CatsController < ApplicationController
     redirect_to cats_path
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @cat.user == current_user

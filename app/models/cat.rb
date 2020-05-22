@@ -11,7 +11,10 @@ class Cat < ApplicationRecord
   validate :date_before_today
 
   private
+
   def date_before_today
-    errors.add(:birthday, "は今日より前の日付を選択してください") if birthday.nil? || birthday > Date.today
+    if birthday.nil? || birthday > Date.today
+      errors.add(:birthday, 'は今日より前の日付を選択してください')
+    end
   end
 end

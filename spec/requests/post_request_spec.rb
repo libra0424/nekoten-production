@@ -3,20 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
-  let(:user){create(:user)}
-  let(:other_user){create(:user2)}
-  let(:create_post){create(:post)}
-  let(:create_other_user_post){create(:post, user:other_user)}
-  let(:post_params){ attributes_for(:post)}
-  let(:invalid_post_params){ attributes_for(:post, caption:"", photos: nil)} #タイトルも写真も空白
-
+  let(:user) { create(:user) }
+  let(:other_user) { create(:user2) }
+  let(:create_post) { create(:post) }
+  let(:create_other_user_post) { create(:post, user: other_user) }
+  let(:post_params) { attributes_for(:post) }
+  let(:invalid_post_params) { attributes_for(:post, caption: '', photos: nil) } # タイトルも写真も空白
 
   describe '#new' do
     context 'ログインしている場合' do
       before do
         sign_in user
       end
-      
+
       it '投稿ページへのアクセスに成功する' do
         get new_post_path
         expect(response).to be_successful
@@ -31,7 +30,6 @@ RSpec.describe PostsController, type: :request do
     end
   end
 
-
   describe '#create' do
     context 'ログインしている場合' do
       before do
@@ -40,13 +38,13 @@ RSpec.describe PostsController, type: :request do
 
       it '投稿リクエストが成功すること' do
         post posts_path, params: { post: post_params }
-        expect(response.status).to eq 302 
+        expect(response.status).to eq 302
       end
 
       it 'createが成功すること' do
         expect do
           post posts_path, params: { post: post_params }
-          end.to change(Post, :count).by 1
+        end.to change(Post, :count).by 1
       end
 
       it 'create後リダイレクトされること' do
@@ -82,7 +80,7 @@ RSpec.describe PostsController, type: :request do
       before do
         sign_in user
       end
-      
+
       it 'indexページへのアクセスに成功する' do
         get posts_path
         expect(response).to be_successful
@@ -118,7 +116,7 @@ RSpec.describe PostsController, type: :request do
   end
 
   describe '#destroy' do
-    let(:current_user_post){create(:post,user_id:user.id)}
+    let(:current_user_post) { create(:post, user_id: user.id) }
     context 'ログインしている場合' do
       before do
         sign_in user
@@ -144,7 +142,7 @@ RSpec.describe PostsController, type: :request do
         before do
           @post = create_other_user_post
         end
-          
+
         it 'deleteできないこと' do
           expect do
             delete post_path(@post.id)

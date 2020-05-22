@@ -3,9 +3,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
-    if @user.present?
-      @posts = @user.posts.order(created_at: :DESC) 
-    end
+    @posts = @user.posts.order(created_at: :DESC) if @user.present?
   end
 
   def index
@@ -23,5 +21,4 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follower'
   end
-
 end

@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user: current_user))
-    
+
     if @comment.save
       respond_to :js
     else
-      render "posts/show"
+      render 'posts/show'
       flash[:alert] = 'コメントに失敗しました'
     end
   end

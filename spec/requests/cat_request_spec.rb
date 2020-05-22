@@ -3,20 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe CatsController, type: :request do
-  let(:user){create(:user)}
-  let(:other_user){create(:user2)}
-  let(:create_cat){create(:cat)}
-  let(:create_other_user_cat){create(:cat, user:other_user)}
-  let(:cat_params){ attributes_for(:cat)}
-  let(:invalid_cat_params){ attributes_for(:cat, name:"")}
-
+  let(:user) { create(:user) }
+  let(:other_user) { create(:user2) }
+  let(:create_cat) { create(:cat) }
+  let(:create_other_user_cat) { create(:cat, user: other_user) }
+  let(:cat_params) { attributes_for(:cat) }
+  let(:invalid_cat_params) { attributes_for(:cat, name: '') }
 
   describe 'cat#new' do
     context 'ログインしている場合' do
       before do
         sign_in user
       end
-      
+
       it '投稿ページへのアクセスに成功する' do
         get new_cat_path
         expect(response).to be_successful
@@ -31,7 +30,6 @@ RSpec.describe CatsController, type: :request do
     end
   end
 
-
   describe 'cat#create' do
     context 'ログインしている場合' do
       before do
@@ -40,13 +38,13 @@ RSpec.describe CatsController, type: :request do
 
       it 'cat#createへのアクセスが成功すること' do
         post cats_path, params: { cat: cat_params }
-        expect(response.status).to eq 302 
+        expect(response.status).to eq 302
       end
 
       it 'createが成功すること' do
         expect do
           post cats_path, params: { cat: cat_params }
-          end.to change(Cat, :count).by 1
+        end.to change(Cat, :count).by 1
       end
 
       it 'create後リダイレクトされること' do
@@ -82,7 +80,7 @@ RSpec.describe CatsController, type: :request do
       before do
         sign_in user
       end
-      
+
       it 'indexページへのアクセスに成功する' do
         get cats_path
         expect(response).to be_successful
@@ -118,7 +116,7 @@ RSpec.describe CatsController, type: :request do
   end
 
   describe '#destroy' do
-    let(:current_user_cat){create(:cat,user_id:user.id)}
+    let(:current_user_cat) { create(:cat, user_id: user.id) }
     context 'ログインしている場合' do
       before do
         sign_in user
@@ -144,7 +142,7 @@ RSpec.describe CatsController, type: :request do
         before do
           @cat = create_other_user_cat
         end
-          
+
         it 'deleteできないこと' do
           expect do
             delete cat_path(@cat.id)
