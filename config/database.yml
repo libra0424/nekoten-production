@@ -30,7 +30,7 @@ development:
 test:
   <<: *default
   username: 'root'
-  password: 'rootpass'
+  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
   port: 3306
   host: '127.0.0.1'
   database: ci_test
