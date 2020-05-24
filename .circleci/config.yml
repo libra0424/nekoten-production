@@ -1,81 +1,35 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
 version: 2
-# jobsの中にタスクを定義。一番下のworkflowのjobsのなかで定義したタスクを使う。
+ 
 jobs:
-  # buildという名前のタスク定義
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.6.0-node-browsers
-        environment:
-          RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: 'rootpass'
-          MYSQL_ROOT_PASSWORD: 'rootpass'
-
-      - image: circleci/mysql:5.7
-        environment:
-          MYSQL_DATABASE: 'ci_test'
-          MYSQL_USER: 'root'
-          MYSQL_ROOT_PASSWORD: 'rootpass'
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
-    # 実際の処理内容
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      # runのたびに実行
-      # パスの指定はキャッシュをするため
-      - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 1.17.3
-            bundle install --jobs=4 --retry=3
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      #MySQLの起動を待つ
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-
-      # run tests
-      - run:
-          name: run tests
-          command: |
-            DISABLE_SPRING=true bundle exec rails test
-
-        # run rubocop
-      - run:
-          name: run rubocop
-          command: bundle exec rubocop
-
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+    build:
+        docker:
+            - image: alpine
+        steps:
+            - checkout
+            - run:
+                name: Echo Test
+                command: echo "CircleCI Test"
+    # EC2 に SSH 接続・デプロイを実行
+    deploy:
+        machine:
+            image: circleci/classic:edge
+        steps:
+            - checkout
+            # CircleCI に登録した秘密鍵を呼び出す
+            - add_ssh_keys:
+            # CircleCI に登録した環境変数を使って SSH
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd nekoten && git pull'
+ 
+workflows:
+    version: 2
+    build_and_deploy:
+        jobs:
+            - build
+            - deploy:
+                requires:
+                    # build ジョブに依存してるので、先に build ジョブを実行しろ！
+                    - build
+                # master ブランチに push された場合のみ deploy
+                filters:
+                    branches:
+                        only: master
