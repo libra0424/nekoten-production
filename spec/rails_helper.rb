@@ -76,4 +76,10 @@ RSpec.configure do |config|
   Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f } # support directoryをrequire
   config.include RequestSpecHelper, type: :request # type: :requestのときにRequestHelperをinclude
   config.include SelectDateHelpers
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+  end
 end
