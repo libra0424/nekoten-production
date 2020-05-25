@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/yuzuku/workspace/nekoten/app/models/user.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -25,13 +25,13 @@
           null,
           null,
           null,
+          null,
           1,
           1,
           1,
           null,
           1,
           1,
-          null,
           null,
           null,
           null,
@@ -70,12 +70,10 @@
           1,
           5,
           null,
-          null,
-          null,
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/models/application_record.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -84,7 +82,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/uploaders/image_uploader.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/uploaders/image_uploader.rb": {
         "lines": [
           null,
           null,
@@ -100,7 +98,7 @@
           null,
           null,
           1,
-          308,
+          300,
           null,
           null,
           null,
@@ -147,17 +145,17 @@
           1,
           248,
           null,
-          null,
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/application_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
           1,
           1,
           0,
+          null,
           0,
           0,
           null,
@@ -172,7 +170,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/cats_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/cats_helper.rb": {
         "lines": [
           null,
           null,
@@ -180,7 +178,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/comments_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/comments_helper.rb": {
         "lines": [
           null,
           null,
@@ -188,8 +186,10 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/devise_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/devise_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           10,
@@ -212,11 +212,10 @@
           1,
           0,
           null,
-          null,
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/likes_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/likes_helper.rb": {
         "lines": [
           null,
           null,
@@ -224,7 +223,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/pages_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/pages_helper.rb": {
         "lines": [
           null,
           null,
@@ -232,7 +231,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/posts_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/posts_helper.rb": {
         "lines": [
           null,
           null,
@@ -240,13 +239,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/relationships_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/helpers/users_helper.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/relationships_helper.rb": {
         "lines": [
           null,
           null,
@@ -254,7 +247,15 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/models/cat.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/helpers/users_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/cat.rb": {
         "lines": [
           null,
           null,
@@ -268,32 +269,35 @@
           1,
           1,
           null,
+          1,
+          null,
+          1,
+          32,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/comment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/post.rb": {
+        "lines": [
+          null,
+          null,
+          1,
           1,
           1,
           32,
-          null,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/comment.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/models/post.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          33,
           1,
           1,
           1,
@@ -308,13 +312,14 @@
           null,
           null,
           1,
+          null,
           1,
           42,
           null,
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/cats_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/cats_controller.rb": {
         "lines": [
           null,
           null,
@@ -338,25 +343,24 @@
           null,
           null,
           1,
+          2,
+          null,
+          null,
+          1,
+          5,
+          5,
+          null,
+          null,
+          1,
+          4,
           3,
           null,
-          null,
           1,
-          5,
-          5,
           null,
-          null,
-          1,
-          5,
           4,
           null,
-          1,
-          null,
-          5,
-          null,
           null,
           1,
-          null,
           null,
           1,
           1,
@@ -376,7 +380,7 @@
           null,
           null,
           1,
-          13,
+          12,
           null,
           null,
           1,
@@ -389,7 +393,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/application_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -407,7 +411,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/comments_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/comments_controller.rb": {
         "lines": [
           null,
           null,
@@ -446,7 +450,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/likes_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/likes_controller.rb": {
         "lines": [
           null,
           null,
@@ -473,7 +477,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/posts_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/posts_controller.rb": {
         "lines": [
           null,
           null,
@@ -500,20 +504,19 @@
           null,
           null,
           1,
-          2,
-          2,
-          null,
-          null,
+          1,
           1,
           null,
           null,
           1,
-          5,
+          null,
+          1,
           4,
+          3,
           null,
           1,
           null,
-          5,
+          4,
           null,
           null,
           1,
@@ -523,13 +526,15 @@
           null,
           null,
           1,
-          13,
+          12,
           null,
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/relationships_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/relationships_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -561,11 +566,10 @@
           1,
           7,
           null,
-          null,
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/models/photo.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/photo.rb": {
         "lines": [
           null,
           null,
@@ -576,7 +580,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/models/catspost.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/catspost.rb": {
         "lines": [
           null,
           null,
@@ -586,7 +590,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/models/like.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/like.rb": {
         "lines": [
           null,
           null,
@@ -597,8 +601,10 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/models/relationship.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/models/relationship.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -608,12 +614,11 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/registrations_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/registrations_controller.rb": {
         "lines": [
           null,
           null,
           1,
-          null,
           1,
           null,
           1,
@@ -626,7 +631,7 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users_controller.rb": {
         "lines": [
           null,
           null,
@@ -634,17 +639,9 @@
           1,
           6,
           6,
-          6,
-          null,
-          null,
-          null,
-          1,
-          0,
           null,
           null,
           1,
-          0,
-          0,
           0,
           null,
           null,
@@ -652,38 +649,6 @@
           0,
           0,
           0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users/sessions_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           1,
@@ -694,7 +659,44 @@
           null
         ]
       },
-      "/Users/yuzuku/workspace/nekoten/app/mailers/application_mailer.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users/sessions_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -706,7 +708,7 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/jobs/application_job.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
@@ -716,7 +718,7 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/pages_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/pages_controller.rb": {
         "lines": [
           null,
           null,
@@ -727,83 +729,7 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users/omniauth_callbacks_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users/passwords_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users/unlocks_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
           null,
@@ -839,7 +765,47 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users/confirmations_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users/passwords_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users/unlocks_controller.rb": {
         "lines": [
           null,
           null,
@@ -875,7 +841,43 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/controllers/users/registrations_controller.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users/confirmations_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/controllers/users/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -940,13 +942,12 @@
           0,
           null,
           0,
-          0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/channels/application_cable/connection.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
@@ -958,7 +959,7 @@
         "branches": {
         }
       },
-      "/Users/yuzuku/workspace/nekoten/app/channels/application_cable/channel.rb": {
+      "/Users/yuzuku/workspace/terraform_ecs_deploy/nekoten/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -971,6 +972,6 @@
         }
       }
     },
-    "timestamp": 1589730029
+    "timestamp": 1590417652
   }
 }
