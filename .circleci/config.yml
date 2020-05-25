@@ -11,7 +11,7 @@ jobs:
           name: docker-compose up
           command: docker-compose up -d
       - run:
-          name: sleep for launch db to migrate at Django
+          name: sleep for launch db to migrate at Rails
           command: sleep 10
       - run:
           name: migrate
