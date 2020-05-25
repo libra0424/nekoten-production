@@ -17,7 +17,7 @@ jobs:
             - checkout
             # CircleCI に登録した秘密鍵を呼び出す
             - add_ssh_keys:
-            # CircleCI に登録した環境変数を使って SSH
+            # CircleCI に登録した環境変数を使って SSHログイン
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd nekoten && git pull'
  
 workflows:
