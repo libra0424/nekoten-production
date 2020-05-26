@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe PostsController, type: :system do
+RSpec.describe PostsController, type: :system ,js:true do
   let(:user) { create(:user) }
   let(:other_user) { create(:user2) }
   let(:build_post) { build(:post) }
@@ -49,9 +49,8 @@ RSpec.describe PostsController, type: :system do
 
       it '自分の投稿を削除できること' do
         visit post_path(@post)
-        expect do
-          find('.delete-post-icon').click
-        end.to change(Post, :count).by(-1)
+        find('.delete-post-icon').click
+        expect(page).not_to have_content @post.caption
       end
     end
   end

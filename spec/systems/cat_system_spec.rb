@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'ネコの機能', type: :system do
+RSpec.describe 'ネコの機能', type: :system ,js:true do
   let(:user) { create(:user) }
   let(:build_cat) { build(:cat) }
 
@@ -12,7 +12,7 @@ RSpec.describe 'ネコの機能', type: :system do
         sign_in user
       end
 
-      it '投稿ページへのアクセスに成功する' do
+      it '猫の登録ページへのアクセスに成功する' do
         visit new_cat_path
         expect(page).to have_content '猫の名前'
       end
@@ -76,16 +76,17 @@ RSpec.describe 'ネコの機能', type: :system do
         @cat = create(:cat, user_id: user.id)
       end
 
-      it '投稿詳細ページへのアクセスに成功する' do
+      it '猫の詳細ページへのアクセスに成功する' do
         visit cat_path(@cat)
         expect(page).to have_content @cat.name
       end
 
-      it '自分の投稿を削除できること' do
+      it '自分の猫を削除できること' do
         visit cat_path(@cat)
-        expect do
-          find('.delete-post-icon').click
-        end.to change(Cat, :count).by(-1)
+        find('.delete-post-icon').click
+        page.save_screenshot('cat_name.png')
+        expect(page).not_to have_content @cat.name
+        page.save_screenshot('cat_name.png')
       end
     end
   end

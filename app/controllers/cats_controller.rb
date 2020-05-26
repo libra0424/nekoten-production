@@ -30,7 +30,7 @@ class CatsController < ApplicationController
 
   def destroy
     if @cat.user == current_user
-      flash[:notice] = 'ウチの子から削除されました' if @cat.destroy
+      flash[:notice] = 'ウチの子から削除されました' if @cat.destroy!
     else
       flash[:alert] = '削除に失敗しました'
     end

@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :post do
     association :user
-    caption { 'test' }
+    caption { 'test_caption' }
     photos do
       [
         FactoryBot.build(:photo, post: nil)
