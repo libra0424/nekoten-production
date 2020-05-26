@@ -84,9 +84,7 @@ RSpec.describe 'ネコの機能', type: :system ,js:true do
       it '自分の猫を削除できること' do
         visit cat_path(@cat)
         find('.delete-post-icon').click
-        page.save_screenshot('cat_name.png')
         expect(page).not_to have_content @cat.name
-        page.save_screenshot('cat_name.png')
       end
     end
   end
