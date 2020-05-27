@@ -44,3 +44,4 @@ config/environments/*.local.yml
 
 #ローカルの環境変数用ファイルを除外
 .env
+
