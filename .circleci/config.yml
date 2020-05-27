@@ -5,7 +5,7 @@ jobs:
     machine:
       image: circleci/classic:edge
     steps:
-# Railsのテストを実行
+# Railsのテストを実行.
       - checkout
       # - run:
       #     name: docker-compose up
