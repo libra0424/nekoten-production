@@ -30,7 +30,7 @@ jobs:
       - checkout
       # CircleCIに登録した秘密鍵を呼び出す。
       - add_ssh_keys:
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'cd nekoten && git pull && docker-compose run app rake db:migrate'
+      - run: ssh -vvv ${USER_NAME}@${HOST_NAME} 'cd nekoten && git pull && docker-compose run app rake db:migrate'
 
 # テストが成功した場合のみ、deployを実行するようにします
 workflows:
