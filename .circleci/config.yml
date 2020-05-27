@@ -28,7 +28,7 @@ jobs:
       image: circleci/classic:edge
     steps:
       - checkout
-      # CircleCIに登録した秘密鍵を呼び出す.
+      # CircleCIに登録した秘密鍵を呼び出す
       - add_ssh_keys:
           fingerprints:
             - "f8:bf:90:75:b7:9c:c9:ec:86:e0:a7:d3:ee:59:93:5c"
