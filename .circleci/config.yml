@@ -34,7 +34,7 @@ jobs:
             - "f8:bf:90:75:b7:9c:c9:ec:86:e0:a7:d3:ee:59:93:5c"
       - run:
           command: ssh ${USER_NAME}@${HOST_NAME} 'cd nekoten-production && git pull && docker-compose run app rake db:migrate'
-          no_output_timeout: 30m
+          no_output_timeout: 60m
 
 # テストが成功した場合のみ、deployを実行するようにします
 workflows:
