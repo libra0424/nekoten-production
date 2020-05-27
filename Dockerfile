@@ -28,7 +28,7 @@ ADD Gemfile /nekoten/Gemfile
 ADD Gemfile.lock /nekoten/Gemfile.lock
 
 # bundle installの実行
-RUN bundle install
+RUN bundle install --jobs=4 --retry=3 --path vendor/bundle
 
 # ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
 ADD . /nekoten
