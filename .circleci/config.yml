@@ -14,9 +14,6 @@ jobs:
           name: sleep for launch db to migrate at Rails
           command: sleep 10
       - run:
-          name: bundle install
-          command: docker-compose run app bundle install --jobs=4 --retry=3
-      - run:
           name: migrate
           command: docker-compose run app rake db:create db:migrate
       - run:
