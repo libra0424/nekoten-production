@@ -1,40 +1,46 @@
-version: '3'
+version: '2'
 services:
   app:
     build:
       context: .
-    env_file:
-      - ./environments/db.env
-    command: bundle exec puma -C config/puma.rb
+      dockerfile: ./docker/rails/Dockerfile
+    command: bundle exec puma -C config/puma.rb 
+    ports:
+      - '3000:3000'
     volumes:
-      - .:/nekoten
-      - public-data:/nekoten/public
-      - tmp-data:/nekoten/tmp
-      - log-data:/nekoten/log
-    environment:
-      - DB_HOST=db
+      - .:/app
+      - /var/tmp
+      # socketファイルの共有
+      - sockets:/app/tmp/sockets
+    tty: true
     depends_on:
       - db
+    extends:
+      file: ./docker/mysql/password.yml
+      service: password
   db:
-    image: mysql:5.7
-    env_file:
-      - ./environments/db.env
-    volumes:
-      - db-data:/var/lib/mysql
-    ports:
-      - 3306:3306
-  web:
     build:
-      context: containers/nginx
-    volumes:
-      - public-data:/nekoten/public
-      - tmp-data:/nekoten/tmp
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
     ports:
-      - 80:80
-    depends_on:
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+    extends:  
+      file: ./docker/mysql/password.yml
+      service: password
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - '80:80'
+      #socketファイルの共有
+    volumes: 
+      - sockets:/app/tmp/sockets
+    depends_on: 
       - app
+
 volumes:
-  public-data:
-  tmp-data:
-  log-data:
-  db-data:
+  db_data:
+  sockets:

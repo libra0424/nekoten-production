@@ -1,4 +1,4 @@
-FROM ruby:2.6-slim
+FROM ruby:2.6.0
 
 # リポジトリを更新し依存モジュールをインストール
 RUN apt-get update -qq && \
@@ -17,21 +17,24 @@ RUN apt-get update && apt-get install -y unzip && \
     mv ~/chromedriver /usr/bin/chromedriver && \
     sh -c 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' && \
     sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' && \
-    apt-get update && apt-get install -y google-chrome-stable
+    apt-get update && apt-get install -y google-chrome-stable \
+    && rm -rf /var/lib/apt/lists/*
 
-# ルート直下にwebappという名前で作業ディレクトリを作成（コンテナ内のアプリケーションディレクトリ）
-RUN mkdir /nekoten
-WORKDIR /nekoten
+# ルート直下にappという名前で作業ディレクトリを作成（コンテナ内のアプリケーションディレクトリ）
+RUN mkdir /app
+WORKDIR /app
 
 # ホストのGemfileとGemfile.lockをコンテナにコピー
-ADD Gemfile /nekoten/Gemfile
-ADD Gemfile.lock /nekoten/Gemfile.lock
+ADD Gemfile /app/Gemfile
+ADD Gemfile.lock /app/Gemfile.lock
 
 # bundle installの実行
 RUN bundle install
 
 # ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
-ADD . /nekoten
+ADD . /app
 
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets
+
+EXPOSE 3000
