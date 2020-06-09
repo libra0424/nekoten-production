@@ -34,12 +34,19 @@ jobs:
       - run: 
           name: Run Rspec
           command: bundle exec rspec
+
 workflows:
   version: 2.1
-  test_and_deploy:
+
+
+
+workflows:
+  test:
     jobs:
       - test
-      #nginx-deploy:
+  # Nginxのデプロイ
+  nginx-deploy:
+    jobs:
       - aws-ecr/build-and-push-image:
           requires:
             - test
@@ -62,6 +69,8 @@ workflows:
           service-name: 'test'  #サービス名
           container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
+  rails-deploy:
+    jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
