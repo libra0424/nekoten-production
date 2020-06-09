@@ -35,7 +35,7 @@ jobs:
           name: Run Rspec
           command: bundle exec rspec
 workflows:
-  test:
+  build-test:
     jobs:
       - test
   # Nginxのデプロイ
