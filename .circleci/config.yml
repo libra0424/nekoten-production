@@ -34,12 +34,6 @@ jobs:
       - run: 
           name: Run Rspec
           command: bundle exec rspec
-
-workflows:
-  version: 2.1
-
-
-
 workflows:
   test:
     jobs:
