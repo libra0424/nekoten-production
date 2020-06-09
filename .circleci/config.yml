@@ -1,52 +1,88 @@
-# circleCIのバージョン指定
-version: 2
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.7.0
+  aws-ecs: circleci/aws-ecs@1.1.0
 jobs:
-  build:
-    machine:
-      image: circleci/classic:edge
-    steps:
-# Railsのテストを実行.
-      - checkout
-      - run:
-          name: docker-compose up
-          command: docker-compose up -d
-      - run:
-          name: sleep for launch db to migrate at Rails
-          command: sleep 10
-      - run:
-          name: migrate
-          command: docker-compose run app rake db:create db:migrate
-      - run:
-          name: test
-          command: docker-compose run app bundle exec rspec
-      - run:
-          name: docker-compose down
-          command: docker-compose down
-# EC2にSSH接続し、デプロイを実行
-  deploy:
-    machine:
-      image: circleci/classic:edge
+  test:
+    docker:
+      - image: circleci/ruby:2.6.0-node-browsers-legacy
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7
+    working_directory: ~/app
     steps:
       - checkout
-      # CircleCIに登録した秘密鍵を呼び出す
-      - add_ssh_keys:
-          fingerprints:
-            - "f8:bf:90:75:b7:9c:c9:ec:86:e0:a7:d3:ee:59:93:5c"
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
+            - v2-dependencies- 
       - run:
-          command: ssh ${USER_NAME}@${HOST_NAME} 'cd nekoten-production && git pull'
-          no_output_timeout: 60m
-
-# テストが成功した場合のみ、deployを実行するようにします
+          name: Install Bundle
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: DB Start-up
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+      - run: gem install bundler
+      - run: 
+          name: Run Rspec
+          command: bundle exec rspec
 workflows:
-  version: 2
-  build_and_deploy:
+  version: 2.1
+  test_and_deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          # masterブランチがpushされた場合のみdeployするようにする。
-          filters:
-            branches:
-              only: master
-              
+      - test
+      nginx-deploy:
+        jobs:
+          - aws-ecr/build-and-push-image:
+              requires:
+                - test
+              account-url: AWS_ECR_ACCOUNT_URL
+              region: AWS_REGION
+              aws-access-key-id: AWS_ACCESS_KEY_ID
+              aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+              create-repo: true
+              dockerfile: ./docker/nginx/Dockerfile
+              repo: nginx
+              tag: "${CIRCLE_SHA1}"
+              filters:
+                branches:
+                  only: master
+          - aws-ecs/deploy-service-update:
+              requires:
+                - aws-ecr/build-and-push-image
+              family: 'nginx-rails-app' # ECSのタスク定義名
+              cluster-name: 'arn:aws:ecs:ap-northeast-1:996090939113:cluster/nekoten-cl'  #ECSのクラスターのARN
+              service-name: 'test'  #サービス名
+              container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
+      # Railsのデプロイ
+      rails-deploy:
+        jobs:
+          - aws-ecr/build-and-push-image:
+              account-url: AWS_ECR_ACCOUNT_URL
+              region: AWS_REGION
+              aws-access-key-id: AWS_ACCESS_KEY_ID
+              aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+              create-repo: true
+              dockerfile: ./docker/rails/Dockerfile
+              repo: rails
+              tag: "${CIRCLE_SHA1}"
+              filters:
+                branches:
+                  only: master
+          - aws-ecs/deploy-service-update:
+              requires:
+                - aws-ecr/build-and-push-image
+              family: 'nginx-rails-app' # ECSのタスク定義名
+              cluster-name: 'arn:aws:ecs:ap-northeast-1:996090939113:cluster/nekoten-cl' #ECSのクラスターのARN
+              service-name: 'test' #サービス名
+              container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
+    
+    

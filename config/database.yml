@@ -29,9 +29,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: 'root'
-  password: <%= ENV.fetch("MYSQL_ROOT_PASSWORD") %>
-  port: 3306
+  password: ""
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
   database: nekoten_test
 
