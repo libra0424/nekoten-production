@@ -2,49 +2,7 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
   aws-ecs: circleci/aws-ecs@1.1.0
-jobs:
-  test:
-    docker:
-      - image: circleci/ruby:2.6.0-node-browsers-legacy
-        environment:
-          RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: root
-          DB_PASSWORD: ""
-          MYSQL_ROOT_PASSWORD: ""
-      - image: circleci/mysql:5.7
-        environment:
-          MYSQL_DATABASE: 'nekoten_test'
-          MYSQL_USER: 'root'
-          MYSQL_ROOT_PASSWORD: ''
-    working_directory: ~/app
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v2-dependencies-{{ checksum "Gemfile.lock" }}
-            - v2-dependencies- 
-      - run:
-          name: Install Bundle
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: DB Start-up
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
-      - run: gem install bundler
-      - run: 
-          name: Run Rspec
-          command: bundle exec rspec
 workflows:
-  build-test:
-    jobs:
-      - test
   # Nginxのデプロイ
   nginx-deploy:
     jobs:
@@ -64,7 +22,7 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'nginx-rails-app' # ECSのタスク定義名
-          cluster-name: 'arn:aws:ecs:ap-northeast-1:996090939113:cluster/nekoten-cl'  #ECSのクラスターのARN
+          cluster-name: 'nekoten-cl'  #ECSのクラスターのARN
           service-name: 'test'  #サービス名
           container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
@@ -86,7 +44,6 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'nginx-rails-app' # ECSのタスク定義名
-          cluster-name: 'arn:aws:ecs:ap-northeast-1:996090939113:cluster/nekoten-cl' #ECSのクラスターのARN
-          service-name: 'test' #サービス名
+          cluster-name: 'nekoten-cl' #ECSのクラスターのARN
+          service-name: 'ecs-rails-service' #サービス名
           container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
-
