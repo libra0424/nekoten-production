@@ -44,12 +44,10 @@ jobs:
 
 workflows:
   version: 2.1
-  build-test:
+  build-test-deploy:
     jobs:
       - build-test
   # Nginxのデプロイ
-  nginx-deploy:
-    jobs:
       - aws-ecr/build-and-push-image:
           requires:
             - build-test
@@ -72,8 +70,6 @@ workflows:
           service-name: 'ecs-rails-service'  #サービス名
           container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
-  rails-deploy:
-    jobs:
       - aws-ecr/build-and-push-image:
           requires:
             - build-test
