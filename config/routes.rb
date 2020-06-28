@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'confirm_email', to: 'users/registrations#confirm_email'
   end
 
-  root 'posts#index'
+  root 'pages#home'
 
   get '/pages/home', to: 'pages#home'
   resources :posts, only: %i[new create index show destroy] do
