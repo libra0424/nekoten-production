@@ -29,7 +29,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  password: ""
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
   database: nekoten_test
   port: 3306
