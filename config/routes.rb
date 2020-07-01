@@ -17,10 +17,14 @@ Rails.application.routes.draw do
 
   get '/pages/home', to: 'pages#home'
   resources :posts, only: %i[new create index show destroy] do
+    collection do
+      get 'index_new'
+    end
     resources :photos, only: %i[create]
     resources :likes, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
   end
+
 
   get '/users/:id', to: 'users#show', as: 'user'
   get 'index', to: 'users#index'
