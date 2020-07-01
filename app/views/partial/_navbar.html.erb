@@ -1,57 +1,25 @@
- <div class="ui right sidebar inverted vertical menu">
-      <a class="item">
-        <%= link_to "新着", index_new_posts_path, class: "item" %>
-      </a>
-      <a class="item">
-        <%= link_to "ウチの猫", cats_path, class: "item" %>
-      </a>
-      <a class="item">
-        <%= link_to "マイページ", user_path(current_user), class: "item" %>
-      </a>
-      <a class="item">
-        <%= link_to "投稿", new_post_path, class: "item" %>
-      </a>
-      <a class="item">
-        <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
-      </a>
-    </div>
-
-    <!-- 上部ナビゲーションメニュー -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
-
-            <div class="ui segment">
-                <p></p>
-            </div>
-
-            <div class="right menu">
-                <div class="ui secondary pointing menu">
-                    <%= link_to "新着", index_new_posts_path, class: "item" %>
-                    <%= link_to "ウチの猫", cats_path, class: "item" %>
-                    <%= link_to "投稿", new_post_path, class: "item" %>
-                    <%= link_to "マイページ", user_path(current_user), class: "item" %>
-                    <div id="js-sidebar" class="item"><i class="icon large grey content"></i></div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-
-    <!-- コンテンツ本体 -->
-    <div class="pusher">
-    </div>
-
-    <!-- jQuery 読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- semantic.js 読み込み --> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js" integrity="sha256-HcON65l89nxNl7vaRECVPe/zNDBzhCcJYBE7O+EcruU=" crossorigin="anonymous"></script>
-    <!-- サイドバーの開閉処理 -->
-    <script>
-      $('#js-sidebar').click(function() {
-        $('.ui.sidebar').sidebar('toggle');
-      });
-    </script>
-
-
+<nav class="navbar navbar-light navbar-expand-md bg-light">
+    <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
+      <ul class="navbar-nav ">
+          <li class="nav-item">
+              <%= link_to "新着", index_new_posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "ウチの猫", cats_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+               <%= link_to "投稿", new_post_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+               <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+      </ul>
+  </div>
+</nav>
