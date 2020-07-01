@@ -27,6 +27,10 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: @followings.ids).limit(10).includes(:photos, :user).order(created_at: :DESC)
   end
 
+  def index_new
+    @posts=Post.all
+  end
+
   def show; end
 
   def destroy
