@@ -25,6 +25,11 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  def new
+    redirect_to :user if user_signed_in?
+    super
+  end
+
   def new_guest
     user = User.guest
     sign_in user
