@@ -2,7 +2,7 @@
 ねこ好き専用のSNSです。たくさんの猫画像が集まって天国みたいになります。
 ポートフォリオとして制作致しました。
 
-![Screen_shot]()
+![Screen_shot](https://github.com/libra0424/nekoten-production/blob/master/app/assets/images/screenshot.png?raw=true)
 
 # リンク
 https://nekoten.site/ <br>
@@ -33,7 +33,7 @@ https://nekoten.site/ <br>
 - SemanticUI
 
 # クラウドアーキテクチャ
-![architecture]()
+![Screen_shot](https://user-images.githubusercontent.com/44374005/71571357-2f8c6f00-2b1d-11ea-97ec-d0a6938dc2b9.png)
 
 - CircleCIでは、githubのpush時に、Rspecによる自動テストを実行しています。
 - masterブランチへのプッシュでは、Rspecによるテストと、ECR,ECSへのデプロイが実行されます。
