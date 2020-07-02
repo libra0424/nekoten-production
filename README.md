@@ -5,7 +5,7 @@
 ![Screen_shot]()
 
 # リンク
-https://www.nekoten.site <br>
+nekoten.site <br>
 ログインページの下部の、簡単ログインボタンから、サンプルユーザーとしてログインできます。
 
 
