@@ -2,33 +2,32 @@
 <html>
 
 <head>
-    <title>nekoten</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nekoten</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="blurBg">
-    <!-- loader --> 
-    <div class="ui dimmer" id="dimmer">
-        <div class="ui massive text loader">
-            <h3>Loading</h3>
-        </div>
+  <!-- loader -->
+  <div class="ui dimmer" id="dimmer">
+    <div class="ui massive text loader">
+      <h3>Loading</h3>
     </div>
-    <div id="topwrapper" class="ui text container fadein-animation">
-        <div>
-          <%= image_tag  "logo.png" %>
-        </div>
-        <h2>猫の写真がたくさん集まる”猫の天国”</h2>
-        <p>お気に入りの猫ごとに写真も管理できて、とってもベンリ<br>猫の天国を覗いてみましょう！</p>
-        <div class="top-start-button fadein-animation">
-            <%= link_to "start", new_user_session_path, class: 'ui black button' ,id: "topstart" %>
-        </div>
+  </div>
+  <div id="topwrapper" class="ui text container fadein-animation">
+    <div>
+      <%= image_tag  "logo.png" %>
     </div>
+    <h2>猫の写真がたくさん集まる”猫の天国”</h2>
+    <p>お気に入りの猫ごとに写真も管理できて、とってもベンリ<br>猫の天国を覗いてみましょう！</p>
+    <div class="top-start-button fadein-animation">
+      <%= link_to "start", new_user_session_path, class: 'ui black button' ,id: "topstart" %>
+    </div>
+  </div>
 </body>
 
 </html>
-

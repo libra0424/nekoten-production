@@ -65,9 +65,9 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'nginx-rails-app' # ECSのタスク定義名
-          cluster-name: 'nekoten-cl'  #ECSのクラスターのARN
-          service-name: 'ecs-rails-service'  #サービス名
+          family: 'niginx-rails-app2' # ECSのタスク定義名
+          cluster-name: 'nekoten2-cluster'  #ECSのクラスターのARN
+          service-name: 'ecs-rails-service2'  #サービス名
           container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
   # Railsのデプロイ
   rails-deploy:
@@ -87,8 +87,8 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'nginx-rails-app' # ECSのタスク定義名
-          cluster-name: 'nekoten-cl' #ECSのクラスターのARN
-          service-name: 'ecs-rails-service' #サービス名
+          family: 'niginx-rails-app2' # ECSのタスク定義名
+          cluster-name: 'nekoten2-cluster' #ECSのクラスターのARN
+          service-name: 'ecs-rails-service2' #サービス名
           container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
 
