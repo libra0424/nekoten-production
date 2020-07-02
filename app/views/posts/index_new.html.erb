@@ -1,4 +1,7 @@
 <div class="card-header">
-  新着のタイムライン
+  新着のタイムライン (全てのユーザー)
 </div>
 <%=render  "feed" %>
+<div class="col-md-8 col-md-2 mx-auto">
+<%= paginate @posts %>
+</div>

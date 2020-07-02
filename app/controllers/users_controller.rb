@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
-    @posts = @user.posts.order(created_at: :DESC) if @user.present?
+    @posts = @user.posts.order(created_at: :DESC).page(params[:page]).per(10) if @user.present?
   end
 
   def index

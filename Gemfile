@@ -86,3 +86,5 @@ gem 'mini_magick'
 gem 'rails-i18n', '~> 5.1'
 #semantic UI Framework
 gem 'semantic-ui-sass'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
