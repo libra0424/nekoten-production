@@ -33,7 +33,7 @@ https://nekoten.site/ <br>
 - SemanticUI
 
 # クラウドアーキテクチャ
-![Screen_shot](https://user-images.githubusercontent.com/44374005/71571357-2f8c6f00-2b1d-11ea-97ec-d0a6938dc2b9.png)
+![Screen_shot](https://user-images.githubusercontent.com/44374005/71571222-93fafe80-2b1c-11ea-9f27-3428010a3da3.png)
 
 - CircleCIでは、githubのpush時に、Rspecによる自動テストを実行しています。
 - masterブランチへのプッシュでは、Rspecによるテストと、ECR,ECSへのデプロイが実行されます。
