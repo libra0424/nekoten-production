@@ -24,11 +24,11 @@ class PostsController < ApplicationController
 
   def index
     @followings = current_user.followings
-    @posts = Post.where(user_id: @followings.ids).limit(10).includes(:photos, :user).order(created_at: :DESC).page(params[:page]).per(10)
+    @posts = Post.where(user_id: @followings.ids).limit(10).includes(:photos, :user).order(created_at: :DESC)
   end
 
   def index_new
-    @posts=Post.all.limit(10).order(created_at: :DESC).page(params[:page]).per(10)
+    @posts=Post.all.limit(10).order(created_at: :DESC)
   end
 
   def show; end

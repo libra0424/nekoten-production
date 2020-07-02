@@ -33,6 +33,6 @@ class Users::SessionsController < Devise::SessionsController
   def new_guest
     user = User.first
     sign_in user
-    redirect_to index_new_posts_path, notice: 'Thank you for your testing!'
+    redirect_to posts_path, notice: 'Thank you for your testing!'
   end
 end

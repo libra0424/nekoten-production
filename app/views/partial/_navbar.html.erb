@@ -1,25 +1,25 @@
 <nav class="navbar navbar-light navbar-expand-md bg-light">
-    <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
+  <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
-      <ul class="navbar-nav ">
-          <li class="nav-item">
-              <%= link_to "新着", index_new_posts_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-              <%= link_to "ウチの猫", cats_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-              <%= link_to "マイページ", user_path(current_user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-               <%= link_to "投稿", new_post_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-               <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
-      </ul>
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <%= link_to "新着", index_new_posts_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "ウチの猫", cats_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "マイページ", user_path(current_user), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "投稿", new_post_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+    </ul>
   </div>
 </nav>
