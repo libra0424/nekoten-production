@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe PostsController, type: :system ,js:true do
+RSpec.describe PostsController, type: :system, js: true do
   let(:user) { create(:user) }
   let(:other_user) { create(:user2) }
   let(:build_post) { build(:post) }

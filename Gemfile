@@ -67,8 +67,8 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'webdrivers'
   gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -84,5 +84,5 @@ gem 'gimei'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'rails-i18n', '~> 5.1'
-#semantic UI Framework
+# semantic UI Framework
 gem 'semantic-ui-sass'

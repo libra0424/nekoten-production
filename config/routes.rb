@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy]
   end
 
-
   get '/users/:id', to: 'users#show', as: 'user'
   get 'index', to: 'users#index'
 

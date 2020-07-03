@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'ネコの機能', type: :system ,js:true do
+RSpec.describe 'ネコの機能', type: :system, js: true do
   let(:user) { create(:user) }
   let(:build_cat) { build(:cat) }
 

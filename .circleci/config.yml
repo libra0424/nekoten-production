@@ -92,3 +92,4 @@ workflows:
           service-name: 'ecs-rails-service' #サービス名
           container-image-name-updates: "container=rails,tag=${CIRCLE_SHA1}"
 
+          

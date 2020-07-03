@@ -75,5 +75,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   host = 'samplehost'
   Rails.application.routes.default_url_options[:host] = host
-  #config.hosts.clear #localhost:80にアクセスするための設定
+  # config.hosts.clear #localhost:80にアクセスするための設定
 end
