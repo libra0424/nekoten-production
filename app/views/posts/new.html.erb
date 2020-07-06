@@ -6,25 +6,27 @@
       </div>
       <div class="card-body">
         <%= form_with model: @post,local: true, class: "upload-images p-0 border-0" do |f| %>
-         <%= render 'layouts/error_messages', model: f.object %>
-          <div class="form-group row mt-2">
-            <div class="col-auto pr-0">
-              <%= image_tag user_profile_photo(current_user), class: "post-profile-icon" %>
-            </div>
-            <div class="col pl-0">
-              <%= f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く" %>
-            </div>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group row mt-2">
+          <div class="col-auto pr-0">
+            <%= image_tag user_profile_photo(current_user), class: "post-profile-icon" %>
           </div>
-          <div class="mb-3">
-            <%= f.fields_for :photos do |i| %>
-              <%= i.file_field :image %>
-            <% end %>
-              <%= f.label :cats ,"猫"%><br>
-              <%= f.collection_check_boxes(:cat_ids, @cats, :id, :name) do |t| %>
-                <% t.label { t.check_box + t.text } %>
-              <% end %>  
+          <div class="col pl-0">
+            <%= f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く" %>
           </div>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+        </div>
+        <div class="mb-3">
+          <%= f.fields_for :photos do |i| %>
+          <%= i.file_field :image %>
+          <% end %>
+          <br><br>
+          <% if @cats.present?%>
+          <%= f.collection_check_boxes(:cat_ids, @cats, :id, :name) do |t| %>
+          <% t.label { t.check_box + t.text } %>
+          <% end %>
+          <% end %>
+        </div>
+        <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
