@@ -56,9 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(_resource)
-    confirm_email_path
-  end
+
 
   def confirm_email; end
 end
