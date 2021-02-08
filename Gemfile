@@ -75,7 +75,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'bootstrap', '~> 4.3.1'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'config'
 gem 'devise', '~> 4.6.1'
 gem 'dotenv-rails'
